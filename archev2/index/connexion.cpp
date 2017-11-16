@@ -3,8 +3,9 @@
 connexion::connexion()
 {
     resize(228, 112);
-    setWindowTitle("zDownloader");
+    setWindowTitle("CONNEXION");
 
+    verticalLayout = new QVBoxLayout(this);
 
     layoutId = new QHBoxLayout();
     labelid = new QLabel(this);
@@ -23,10 +24,10 @@ connexion::connexion()
     layoutpwd->addWidget(labelMdp);
     layoutpwd->addWidget(mdp);
 
-    verticalLayout = new QVBoxlayout(this);
 
-    verticalLayout.addLayout(layoutId);
-    verticalLayout.addLayout(labelMdp);
+
+    verticalLayout->addLayout(layoutId);
+    verticalLayout->addLayout(layoutpwd);
 
     loginB = new QPushButton("Connexion");
 }
