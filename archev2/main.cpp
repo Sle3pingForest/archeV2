@@ -1,6 +1,7 @@
 #include <QApplication>
 
 #include "accueil.h"
+#include "index/connexion.h"
 
 int main(int argc, char *argv[])
 {

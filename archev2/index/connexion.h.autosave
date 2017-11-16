@@ -21,7 +21,7 @@ class connexion : public QWidget
         QLabel *labelMdp;
         QLineEdit *mdp;
 
-        QPushButton *login;
+        QPushButton *loginB;
 
         QVBoxLayout *verticalLayout;
 
