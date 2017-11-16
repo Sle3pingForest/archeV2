@@ -28,7 +28,7 @@ private:
 QVBoxLayout *verticalLayout;
 QHBoxLayout *horizontalLayout;
 QGridLayout *gridLayout;
-QLabel *label;
+QLabel *label, *label2;
 QLineEdit *urlEdit;
 QPushButton *connexion;
 QProgressBar *progression;
