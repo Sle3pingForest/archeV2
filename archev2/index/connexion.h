@@ -1,4 +1,8 @@
 #include <QApplication>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
 
 #ifndef CONNEXION_H
 #define CONNEXION_H
@@ -21,12 +25,9 @@ class connexion : public QWidget
         QLabel *labelMdp;
         QLineEdit *mdp;
 
-        QPushButton *login;
+        QPushButton *loginB;
 
         QVBoxLayout *verticalLayout;
-
-
-
 };
 
 #endif // CONNEXION_H
