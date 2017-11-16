@@ -45,8 +45,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../archev2/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../archev2/main.cpp \
+		../archev2/accueil.cpp 
+OBJECTS       = main.o \
+		accueil.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -278,7 +280,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/archev21.0.0 || mkdir -p .tmp/archev21.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/main.cpp .tmp/archev21.0.0/ && (cd `dirname .tmp/archev21.0.0` && $(TAR) archev21.0.0.tar archev21.0.0 && $(COMPRESS) archev21.0.0.tar) && $(MOVE) `dirname .tmp/archev21.0.0`/archev21.0.0.tar.gz . && $(DEL_FILE) -r .tmp/archev21.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/accueil.h .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/main.cpp ../archev2/accueil.cpp .tmp/archev21.0.0/ && (cd `dirname .tmp/archev21.0.0` && $(TAR) archev21.0.0.tar archev21.0.0 && $(COMPRESS) archev21.0.0.tar) && $(MOVE) `dirname .tmp/archev21.0.0`/archev21.0.0.tar.gz . && $(DEL_FILE) -r .tmp/archev21.0.0
 
 
 clean:compiler_clean 
@@ -430,8 +432,15 @@ main.o: ../archev2/main.cpp /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
 		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h
+		/usr/include/qt5/QtGui/qinputmethod.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../archev2/main.cpp
+
+accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accueil.o ../archev2/accueil.cpp
 
 ####### Install
 
