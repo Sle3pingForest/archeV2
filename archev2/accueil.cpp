@@ -30,6 +30,7 @@ Accueil::Accueil()
     label2->setText("Footer");
     gridLayout->addWidget(label2,5,5);
 
+    QObject::connect(connexion, SIGNAL(clicked()), this, SLOT(quit()));
      //horizontalLayout->addWidget(connexion,3,1);
 
 
