@@ -46,10 +46,16 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../archev2/main.cpp \
+<<<<<<< HEAD
+		../archev2/accueil.cpp 
+OBJECTS       = main.o \
+		accueil.o
+=======
 		../archev2/accueil.cpp moc_accueil.cpp
 OBJECTS       = main.o \
 		accueil.o \
 		moc_accueil.o
+>>>>>>> 775726a64946d84d2387263becf9a05271e4b0d1
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -788,6 +794,14 @@ main.o: ../archev2/main.cpp /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+<<<<<<< HEAD
+		/usr/include/qt5/QtGui/qicon.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../archev2/main.cpp
+
+accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accueil.o ../archev2/accueil.cpp
+
+=======
 		/usr/include/qt5/QtGui/qicon.h \
 		../archev2/accueil.h \
 		/usr/include/qt5/QtGui/QtGui \
@@ -1378,6 +1392,7 @@ accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h \
 moc_accueil.o: moc_accueil.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_accueil.o moc_accueil.cpp
 
+>>>>>>> 775726a64946d84d2387263becf9a05271e4b0d1
 ####### Install
 
 install:   FORCE

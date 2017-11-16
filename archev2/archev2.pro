@@ -3,7 +3,9 @@ QT += network
 
 SOURCES += \
     main.cpp \
-    accueil.cpp
+    accueil.cpp \
+    index/connexion.cpp
 
 HEADERS += \
-    accueil.h
+    accueil.h \
+    index/connexion.h
