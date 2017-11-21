@@ -7,12 +7,12 @@
 #ifndef CONNEXION_H
 #define CONNEXION_H
 
-class connexion : public QWidget
+class Connexion : public QWidget
 {
 
     Q_OBJECT
     public:
-        connexion();
+        Connexion();
 
     private:
         QHBoxLayout *layoutId;

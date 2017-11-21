@@ -14,6 +14,7 @@
 #include <QProgressBar>
 #include <QPushButton>
 #include <QGridLayout>
+#include <index/connexion.h>
 
 class Accueil : public QWidget
 {
@@ -23,8 +24,10 @@ public:
     Accueil();
 
 private slots:
+    void handleButton();
 
 private:
+Connexion *co;
 QVBoxLayout *verticalLayout;
 QHBoxLayout *horizontalLayout;
 QGridLayout *gridLayout;

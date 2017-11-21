@@ -1,6 +1,6 @@
 #include "connexion.h"
 
-connexion::connexion()
+Connexion::Connexion()
 {
     resize(228, 112);
     setWindowTitle("CONNEXION");
