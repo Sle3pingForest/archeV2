@@ -52,6 +52,10 @@ void Connexion::handleButton()
     }
     else{
         logingOk = false;
+        QMessageBox::warning(this, tr("wrong login"),
+                                        tr("L'indentifiant ou le mot de passe \n"
+                                           "est éronné "),
+                                        QMessageBox::Ok);
     }
     this->close();
 }

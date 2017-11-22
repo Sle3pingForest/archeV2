@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QMessageBox>
 #include "checkauthentifiacation.h"
 
 #ifndef CONNEXION_H
