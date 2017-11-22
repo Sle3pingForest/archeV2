@@ -20,6 +20,7 @@ Connexion::Connexion()
     labelMdp = new QLabel(this);
     labelMdp->setText("Pwd : ");
     mdp = new QLineEdit("Enter your password",this);
+    mdp->setEchoMode(QLineEdit::Password);
 
     layoutpwd->addWidget(labelMdp);
     layoutpwd->addWidget(mdp);
