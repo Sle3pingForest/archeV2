@@ -53,11 +53,14 @@ void Connexion::handleButton()
     else{
         logingOk = false;
     }
+    this->close();
 }
 
 
 bool Connexion::getLogingOk(){
     return logingOk;
 }
+
+
 
 
