@@ -43,6 +43,7 @@ class Connexion : public QDialog
 
         QString ids;
         QString mdps;
+
 };
 
 #endif // CONNEXION_H

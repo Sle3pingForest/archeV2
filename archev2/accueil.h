@@ -21,11 +21,17 @@ class Accueil : public QWidget
 
         Q_OBJECT
 public:
-    Accueil();
+    Accueil(QWidget *parent = 0);
+    ~Accueil();
     static void checkLoging(bool b);
+
 
 private slots:
     void handleButton();
+    void on_listeCours_clicked();
+
+signals:
+    void askDisplayFen(int fenInd);
 
 private:
 
@@ -36,7 +42,7 @@ private:
     QGridLayout *gridLayout;
     QLabel *label, *label2;
     QLineEdit *urlEdit;
-    QPushButton *connexion;
+    QPushButton *connexion, *listeCours;
     QProgressBar *progression;
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
 };
