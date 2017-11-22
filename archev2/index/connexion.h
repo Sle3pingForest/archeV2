@@ -17,6 +17,7 @@ class Connexion : public QDialog
     public:
         Connexion();
         bool getLogingOk();
+        ~Connexion();
 
 
     private slots:

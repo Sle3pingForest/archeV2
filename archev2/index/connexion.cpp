@@ -41,6 +41,9 @@ Connexion::Connexion()
 
 }
 
+Connexion::~Connexion() {
+    delete this;
+}
 
 void Connexion::handleButton()
  {
