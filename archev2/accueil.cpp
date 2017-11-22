@@ -21,7 +21,7 @@ Accueil::Accueil()
     gridLayout->addWidget(label,0,0,0,4);
 
 
-    connexion = new QPushButton("Connexion");
+    connexion = new QPushButton("Connexion",this);
     connexion->setMaximumWidth(80);
     connexion->setMaximumHeight(30);
     gridLayout->addWidget(connexion,0,5);
@@ -34,8 +34,17 @@ Accueil::Accueil()
      //horizontalLayout->addWidget(connexion,3,1);
 
 
+    connect(connexion, SIGNAL (released()), this, SLOT (handleButton()));
     setLayout(gridLayout);
 
 
 }
+
+void Accueil::handleButton()
+ {
+    co = new Connexion();
+    co->show();
+}
+
+
 
