@@ -49,6 +49,7 @@ void Connexion::handleButton()
     mdps = mdp->text();
     if(ca->checkUser(ids.toStdString(),mdps.toStdString())){
         logingOk = true;
+
     }
     else{
         logingOk = false;

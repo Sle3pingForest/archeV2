@@ -22,20 +22,23 @@ class Accueil : public QWidget
         Q_OBJECT
 public:
     Accueil();
+    static void checkLoging(bool b);
 
 private slots:
     void handleButton();
 
 private:
-Connexion *co;
-QVBoxLayout *verticalLayout;
-QHBoxLayout *horizontalLayout;
-QGridLayout *gridLayout;
-QLabel *label, *label2;
-QLineEdit *urlEdit;
-QPushButton *connexion;
-QProgressBar *progression;
-bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
+
+    static bool estCo;
+    Connexion *co;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
+    QGridLayout *gridLayout;
+    QLabel *label, *label2;
+    QLineEdit *urlEdit;
+    QPushButton *connexion;
+    QProgressBar *progression;
+    bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
 };
 
 #endif // ACCUEIL_H

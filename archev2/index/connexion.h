@@ -3,18 +3,20 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QDialog>
 #include "checkauthentifiacation.h"
 
 #ifndef CONNEXION_H
 #define CONNEXION_H
 
-class Connexion : public QWidget
+class Connexion : public QDialog
 {
 
     Q_OBJECT
     public:
         Connexion();
         bool getLogingOk();
+
 
     private slots:
         void handleButton();

@@ -30,11 +30,10 @@ Accueil::Accueil()
     label2->setText("Footer");
     gridLayout->addWidget(label2,5,5);
 
-    QObject::connect(connexion, SIGNAL(clicked()), this, SLOT(quit()));
      //horizontalLayout->addWidget(connexion,3,1);
 
 
-    connect(connexion, SIGNAL (released()), this, SLOT (handleButton()));
+    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
     setLayout(gridLayout);
 
 
@@ -43,7 +42,8 @@ Accueil::Accueil()
 void Accueil::handleButton()
  {
     co = new Connexion();
-    co->show();
+    co->exec();
+    cout<< "loginn est ok ? "<<co->getLogingOk()<<endl;
 }
 
 
