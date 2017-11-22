@@ -26,8 +26,37 @@ Connexion::Connexion()
 
 
 
+    loginB = new QPushButton("Log in");
+
+    layoutBouton = new QHBoxLayout();
+    layoutBouton->addWidget(loginB);
+
+
     verticalLayout->addLayout(layoutId);
     verticalLayout->addLayout(layoutpwd);
+    verticalLayout->addLayout(layoutBouton);
 
-    loginB = new QPushButton("Connexion");
+    connect(loginB, SIGNAL (released()), this, SLOT (handleButton()));
+
 }
+
+
+void Connexion::handleButton()
+ {
+    ca = new CheckAuthentifiacation();
+    ids = identification->text();
+    mdps = mdp->text();
+    if(ca->checkUser(ids.toStdString(),mdps.toStdString())){
+        logingOk = true;
+    }
+    else{
+        logingOk = false;
+    }
+}
+
+
+bool Connexion::getLogingOk(){
+    return logingOk;
+}
+
+

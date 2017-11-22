@@ -43,7 +43,7 @@ void Accueil::handleButton()
  {
     co = new Connexion();
     co->show();
-    this->repaint();
-    label->setText("yolo");
 }
+
+
 
