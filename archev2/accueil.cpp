@@ -4,14 +4,18 @@
 Accueil::Accueil(QWidget *parent) : QWidget(parent)
 {
     //On donne une taille par défaut à la fenêtre
-    resize(700, 600);
     setWindowTitle("Accueil");
 
-    //On définit les layouts
-    //verticalLayout = new QVBoxLayout(this);
-    //horizontalLayout = new QHBoxLayout();
     gridLayout = new QGridLayout();
     gridLayout->setVerticalSpacing(0);
+
+
+
+
+
+    labelimgAccueil = new QLabel(this);
+    labelimgAccueil->setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
+    labelimgAccueil->show();
 
     label = new QLabel(this);
     label->setText("Accueil Arche du turfu");
@@ -29,12 +33,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
 
-    label2 = new QLabel(this);
-    label2->setText("Footer");
-    gridLayout->addWidget(label2,5,5);
-
-     //horizontalLayout->addWidget(connexion,3,1);
-
 
     connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
 
@@ -50,7 +48,9 @@ Accueil::~Accueil() {
 }
 
 void Accueil::on_listeCours_clicked() {
-    emit askDisplayFen(1);
+    if(estCo){
+        emit askDisplayFen(1);
+    }
 }
 
 void Accueil::handleButton()
@@ -58,7 +58,14 @@ void Accueil::handleButton()
     co = new Connexion();
     co->exec();
     cout<< "loginn est ok ? "<<co->getLogingOk()<<endl;
+    if(co->getLogingOk()){
+        estCo = true;
+    }
 }
 
+
+bool Accueil:: getEstCo(){
+    return estCo;
+}
 
 

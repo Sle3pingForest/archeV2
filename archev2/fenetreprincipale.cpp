@@ -3,7 +3,7 @@
 
 FenetrePrincipale::FenetrePrincipale() : QMainWindow()
 {
-    resize(700, 600);
+    resize(800, 380);
     setWindowTitle("FenPrin");
 
     stack = new QStackedWidget(this);

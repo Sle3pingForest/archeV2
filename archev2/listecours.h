@@ -10,6 +10,8 @@ class ListeCours : public QWidget
          Q_OBJECT
 public:
     ListeCours(QWidget *parent = 0);
+
+    bool getEstResterCo();
     ~ListeCours();
 
 
@@ -23,6 +25,8 @@ private:
      QLabel *label, *label2;
      QGridLayout *gridLayout;
      QPushButton *connexion;
+
+     bool estResterCo;
 };
 
 #endif // LISTECOURS_H

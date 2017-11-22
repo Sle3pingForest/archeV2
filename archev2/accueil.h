@@ -23,7 +23,7 @@ class Accueil : public QWidget
 public:
     Accueil(QWidget *parent = 0);
     ~Accueil();
-    static void checkLoging(bool b);
+    bool getEstCo();
 
 
 private slots:
@@ -35,12 +35,12 @@ signals:
 
 private:
 
-    static bool estCo;
+    bool estCo = false;
     Connexion *co;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout;
-    QLabel *label, *label2;
+    QLabel *label, *label2, *labelimgAccueil;
     QLineEdit *urlEdit;
     QPushButton *connexion, *listeCours;
     QProgressBar *progression;
