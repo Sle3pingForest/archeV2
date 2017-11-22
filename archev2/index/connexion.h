@@ -4,6 +4,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QDialog>
+#include <QMessageBox>
 #include "checkauthentifiacation.h"
 
 #ifndef CONNEXION_H
