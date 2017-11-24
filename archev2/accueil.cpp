@@ -51,13 +51,17 @@ void Accueil::on_listeCours_clicked() {
     if(estCo){
         emit askDisplayFen(1);
     }
+    else{
+        QMessageBox::warning(this, tr("Exces error"),
+                                        tr("Identifiez-vous!!! "),
+                                        QMessageBox::Ok);
+    }
 }
 
 void Accueil::handleButton()
  {
     co = new Connexion();
     co->exec();
-    cout<< "loginn est ok ? "<<co->getLogingOk()<<endl;
     if(co->getLogingOk()){
         estCo = true;
     }

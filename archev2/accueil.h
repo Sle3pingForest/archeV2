@@ -35,7 +35,7 @@ signals:
 
 private:
 
-    bool estCo = false;
+    //QT class
     Connexion *co;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -44,7 +44,10 @@ private:
     QLineEdit *urlEdit;
     QPushButton *connexion, *listeCours;
     QProgressBar *progression;
+
+    //DEV class
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
+    bool estCo = false;
 };
 
 #endif // ACCUEIL_H
