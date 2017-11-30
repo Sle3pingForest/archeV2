@@ -963,6 +963,7 @@ moc_listecours.cpp: /usr/include/qt5/QtWidgets/QLabel \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
+		../archev2/gestionCours/cours.h \
 		../archev2/gestionCours/listecours.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionCours/listecours.h -o moc_listecours.cpp
 
@@ -1345,6 +1346,7 @@ moc_fenetreprincipale.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
+		../archev2/gestionCours/cours.h \
 		../archev2/gestionWindow/fenetreprincipale.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionWindow/fenetreprincipale.h -o moc_fenetreprincipale.cpp
 
@@ -1741,7 +1743,8 @@ main.o: ../archev2/main.cpp /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
-		../archev2/gestionCours/listecours.h
+		../archev2/gestionCours/listecours.h \
+		../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../archev2/main.cpp
 
 accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h \
@@ -2384,7 +2387,8 @@ listecours.o: ../archev2/gestionCours/listecours.cpp ../archev2/gestionCours/lis
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtGui/qicon.h
+		/usr/include/qt5/QtGui/qicon.h \
+		../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listecours.o ../archev2/gestionCours/listecours.cpp
 
 fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/gestionWindow/fenetreprincipale.h \
@@ -2766,7 +2770,8 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
-		../archev2/gestionCours/listecours.h
+		../archev2/gestionCours/listecours.h \
+		../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fenetreprincipale.o ../archev2/gestionWindow/fenetreprincipale.cpp
 
 mainwindow.o: ../archev2/gestionWindow/mainwindow.cpp ../archev2/gestionWindow/mainwindow.h

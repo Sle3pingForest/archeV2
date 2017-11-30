@@ -1,7 +1,14 @@
 #include "cours.h"
 
-Cours::Cours()
+
+Cours::Cours(){
+
+}
+
+Cours::Cours(string nomC, string NomEns)
 {
+    nomDeCour = nomC;
+    nomEnseignant = NomEns;
 
 }
 

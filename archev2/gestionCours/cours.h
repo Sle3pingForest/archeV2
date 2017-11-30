@@ -13,6 +13,7 @@ class Cours
 {
     public:
         Cours();
+        Cours(string nomC, string NomEns);
         string getNomCours();
         string getNomEnseignant();
         string getDetailsCour();
