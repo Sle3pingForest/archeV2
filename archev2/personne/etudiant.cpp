@@ -12,3 +12,11 @@ int Etudiant:: getNbCoursMax(){
 int Etudiant:: consulterNote(){
     return 0;
 }
+
+std::string Etudiant::getNom(){
+    return nom;
+}
+
+std::string Etudiant::getPrenom(){
+    return prenom;
+}

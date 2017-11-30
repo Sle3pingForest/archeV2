@@ -13,6 +13,8 @@ public:
     int consulterNote();
     //void inscrireCours(Cours& c);
     //Cours selectCours();
+    std::string getNom();
+    std::string getPrenom();
 
 private:
     std::string login;

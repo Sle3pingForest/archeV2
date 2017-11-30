@@ -11,7 +11,9 @@ SOURCES += \
     gestionWindow/fenetreprincipale.cpp \
     gestionWindow/mainwindow.cpp \
     gestionWindow/newwindow.cpp \
-    personne/etudiant.cpp
+    personne/etudiant.cpp \
+    personne/enseignant.cpp \
+    gestionCours/listecourenattente.cpp
 
 HEADERS += \
     accueil.h \
@@ -22,4 +24,6 @@ HEADERS += \
     gestionWindow/fenetreprincipale.h \
     gestionWindow/mainwindow.h \
     gestionWindow/newwindow.h \
-    personne/etudiant.h
+    personne/etudiant.h \
+    personne/enseignant.h \
+    gestionCours/listecourenattente.h
