@@ -23,12 +23,6 @@ class Accueil : public QWidget
 public:
     Accueil(QWidget *parent = 0);
     ~Accueil();
-<<<<<<< HEAD
-    static void checkLoging(bool b);
-    void getCo();
-=======
-    bool getEstCo();
->>>>>>> 555b1e571fec5932f5691b8aeb9ded8e1c21ddf1
 
 
 private slots:

@@ -71,13 +71,3 @@ void Accueil::handleButton()
     }
 }
 
-void Accueil::getCo() {
-    if (FenetrePincipale::getCo()) {
-    }
-}
-
-bool Accueil:: getEstCo(){
-    return estCo;
-}
-
-
