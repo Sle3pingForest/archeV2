@@ -4,7 +4,8 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QPushButton>
- #include <list>
+#include <list>
+#include <vector>
 #include "cours.h"
 
 
@@ -16,9 +17,11 @@ class ListeCours : public QWidget
 public:
 
     ListeCours(QWidget *parent = 0);
-    Cours getCours(int i);
+    Cours* getCours(int i);
     bool getEstResterCo();
     ~ListeCours();
+    void ajouterCours(Cours& c);
+    bool MetsDansTonQ(int i);
 
 
 private slots:
@@ -36,10 +39,10 @@ private:
 
 
      // Dev Clas & Attributs
-    Cours cours;
-    list<Cours> listdeCours;
-    string listNomDeCours[5] =  {"Toucan", "CPOA","ALGO","SYSTEM","LOGIQUE"};
-    string listNomEns[5] =   {"teemo", "yasuo","yi","trym","garen"};
+
+    std::vector <Cours*> listeCours;
+    /*string listNomDeCours[5] =  {"Toucan", "CPOA","ALGO","SYSTEM","LOGIQUE"};
+    string listNomEns[5] =   {"teemo", "yasuo","yi","trym","garen"};*/
 
      bool estResterCo;
 

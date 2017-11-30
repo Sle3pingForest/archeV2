@@ -8,8 +8,6 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-
-
    FenetrePrincipale fp;
 
     fp.show();

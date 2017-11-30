@@ -23,9 +23,16 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
     //DEV
 
-    for (int i = 0; i < listdeCours.size() ; ++i){
-        //cours = new Cours(listNomDeCours);
-    }
+    listeCours.push_back(new Cours("Toucan", "teemo"));
+
+    listeCours.push_back(new Cours("CPOA", "yasuo"));
+
+    listeCours.push_back(new Cours("ALGO", "Master yi"));
+
+    listeCours.push_back(new Cours("SYSTEM", "tryn"));
+
+    listeCours.push_back(new Cours("LOGIQUE", "garen"));
+
 }
 
 
@@ -38,19 +45,22 @@ void ListeCours::handleButton() {
     estResterCo = false;
 }
 
+void ListeCours::ajouterCours(Cours& c) {
+    listeCours.push_back(&c);
+}
+
 bool ListeCours::getEstResterCo(){
     return estResterCo;
 }
 
+bool ListeCours::MetsDansTonQ(int i) {
+
+    if (listeCours.size() < i) return true;
+}
+
 string ListeCours::getNomDeCours(int i){
 
-    string nomC;
-    /*for(list<int>::iterator it = listNomDeCours.begin(); it!=listNomDeCours.end(); ++it)
-    {
-        std::advance(it, i);
-    }
-*/
-    return "COURS" ;
+    return listeCours[i]->getNomCours();
 }
 
 
@@ -63,6 +73,8 @@ string ListeCours::getNomDeEns(int i){
 */
     return "ENS" ;
 }
-Cours ListeCours::getCours(int i){
-    return cours;
+
+
+Cours* ListeCours::getCours(int i){
+    return listeCours[i];
 }

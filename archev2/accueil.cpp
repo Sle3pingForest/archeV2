@@ -66,7 +66,7 @@ void Accueil::handleButton(FenetrePrincipale& vaarible)
  {
     co = new Connexion();
     co->exec();
-    if(vaarible->getCo()){
+    if(true){
         estCo = true;
     }
 }
