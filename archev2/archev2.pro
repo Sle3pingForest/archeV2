@@ -10,7 +10,8 @@ SOURCES += \
     gestionCours/listecours.cpp \
     gestionWindow/fenetreprincipale.cpp \
     gestionWindow/mainwindow.cpp \
-    gestionWindow/newwindow.cpp
+    gestionWindow/newwindow.cpp \
+    personne/etudiant.cpp
 
 HEADERS += \
     accueil.h \
@@ -20,4 +21,5 @@ HEADERS += \
     gestionCours/listecours.h \
     gestionWindow/fenetreprincipale.h \
     gestionWindow/mainwindow.h \
-    gestionWindow/newwindow.h
+    gestionWindow/newwindow.h \
+    personne/etudiant.h
