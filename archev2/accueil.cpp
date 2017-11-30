@@ -35,7 +35,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
-    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
+    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton(FenetrePrincipale& azerty)));
 
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
 
@@ -62,11 +62,11 @@ void Accueil::on_listeCours_clicked() {
     }
 }
 
-void Accueil::handleButton()
+void Accueil::handleButton(FenetrePrincipale& vaarible)
  {
     co = new Connexion();
     co->exec();
-    if(co->getLogingOk()){
+    if(vaarible->getCo()){
         estCo = true;
     }
 }
