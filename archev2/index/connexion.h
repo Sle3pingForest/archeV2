@@ -17,32 +17,31 @@ class Connexion : public QDialog
     public:
         Connexion();
         bool getLogingOk();
+        ~Connexion();
 
 
     private slots:
         void handleButton();
 
     private:
-        CheckAuthentifiacation *ca;
 
+        //QT class
         QHBoxLayout *layoutId;
         QHBoxLayout *layoutpwd;
         QHBoxLayout *layoutBouton;
-
-
         QLabel *labelid;
         QLineEdit *identification;
-
         QLabel *labelMdp;
         QLineEdit *mdp;
-
         QPushButton *loginB;
-
         QVBoxLayout *verticalLayout;
-        bool logingOk = false;
 
-        QString ids;
-        QString mdps;
+        //DEV class
+
+        CheckAuthentifiacation *ca;
+        bool logingOk = false;
+        string ids;
+        string mdps;
 
 };
 

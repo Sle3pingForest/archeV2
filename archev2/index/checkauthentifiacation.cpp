@@ -27,6 +27,10 @@ bool CheckAuthentifiacation::checkUser(string id, string ps){
     return false;
 }
 
+
+CheckAuthentifiacation::~CheckAuthentifiacation() {
+    delete this;
+}
 map<string,string> CheckAuthentifiacation::GetlistUsers(){
     return listUsers;
 }

@@ -41,13 +41,16 @@ Connexion::Connexion()
 
 }
 
+Connexion::~Connexion() {
+    delete this;
+}
 
 void Connexion::handleButton()
  {
     ca = new CheckAuthentifiacation();
-    ids = identification->text();
-    mdps = mdp->text();
-    if(ca->checkUser(ids.toStdString(),mdps.toStdString())){
+    ids = identification->text().toStdString();
+    mdps = mdp->text().toStdString();
+    if(ca->checkUser(ids,mdps)){
         logingOk = true;
 
     }

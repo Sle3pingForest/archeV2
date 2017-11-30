@@ -23,8 +23,12 @@ class Accueil : public QWidget
 public:
     Accueil(QWidget *parent = 0);
     ~Accueil();
+<<<<<<< HEAD
     static void checkLoging(bool b);
     void getCo();
+=======
+    bool getEstCo();
+>>>>>>> 555b1e571fec5932f5691b8aeb9ded8e1c21ddf1
 
 
 private slots:
@@ -38,16 +42,19 @@ signals:
 
 private:
 
-    static bool estCo;
+    //QT class
     Connexion *co;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout;
-    QLabel *label, *label2;
+    QLabel *label, *label2, *labelimgAccueil;
     QLineEdit *urlEdit;
     QPushButton *connexion, *listeCours, *getC;
     QProgressBar *progression;
+
+    //DEV class
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
+    bool estCo = false;
 };
 
 #endif // ACCUEIL_H

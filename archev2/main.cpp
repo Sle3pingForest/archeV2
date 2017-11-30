@@ -2,7 +2,7 @@
 
 #include "accueil.h"
 #include "index/connexion.h"
-#include "fenetreprincipale.h"
+#include "gestionWindow/fenetreprincipale.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,12 +13,6 @@ int main(int argc, char *argv[])
    FenetrePrincipale fp;
 
     fp.show();
-
-   printf("%s", *argv);
-    QLabel label;
-      //on donne l'image au label
-      label.setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
-      label.show();
 
     return app.exec();
 }

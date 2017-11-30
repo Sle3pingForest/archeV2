@@ -11,6 +11,7 @@ class CheckAuthentifiacation
         CheckAuthentifiacation();
         bool checkUser(string id, string ps);
         map<string,string> GetlistUsers();
+        ~CheckAuthentifiacation();
 
     private:
         map<string,string> listUsers;

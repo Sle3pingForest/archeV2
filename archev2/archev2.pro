@@ -6,12 +6,18 @@ SOURCES += \
     accueil.cpp \
     index/connexion.cpp \
     index/checkauthentifiacation.cpp \
-    fenetreprincipale.cpp \
-    listecours.cpp
+    gestionCours/cours.cpp \
+    gestionCours/listecours.cpp \
+    gestionWindow/fenetreprincipale.cpp \
+    gestionWindow/mainwindow.cpp \
+    gestionWindow/newwindow.cpp
 
 HEADERS += \
     accueil.h \
     index/connexion.h \
     index/checkauthentifiacation.h \
-    fenetreprincipale.h \
-    listecours.h
+    gestionCours/cours.h \
+    gestionCours/listecours.h \
+    gestionWindow/fenetreprincipale.h \
+    gestionWindow/mainwindow.h \
+    gestionWindow/newwindow.h
