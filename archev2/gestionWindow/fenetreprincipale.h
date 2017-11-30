@@ -7,8 +7,8 @@
 #include <QStackedWidget>
 
 #include "accueil.h"
-#include "index/connexion.h"
-#include "listecours.h"
+#include "./index/connexion.h"
+#include "./gestionCours/listecours.h"
 
 
 class FenetrePrincipale : public QMainWindow

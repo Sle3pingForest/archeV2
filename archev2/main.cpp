@@ -2,7 +2,7 @@
 
 #include "accueil.h"
 #include "index/connexion.h"
-#include "fenetreprincipale.h"
+#include "gestionWindow/fenetreprincipale.h"
 
 int main(int argc, char *argv[])
 {
