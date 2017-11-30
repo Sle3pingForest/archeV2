@@ -11,7 +11,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
-
+    co = new Connexion();
 
     labelimgAccueil = new QLabel(this);
     labelimgAccueil->setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
@@ -35,7 +35,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
-    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton(FenetrePrincipale& azerty)));
+    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
 
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
 
@@ -48,7 +48,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 }
 
 Accueil::~Accueil() {
-    delete this;
+    delete co;
 }
 
 void Accueil::on_listeCours_clicked() {
@@ -62,11 +62,11 @@ void Accueil::on_listeCours_clicked() {
     }
 }
 
-void Accueil::handleButton(FenetrePrincipale& vaarible)
+void Accueil::handleButton()
  {
-    co = new Connexion();
     co->exec();
-    if(true){
+
+    if(co->getLogingOk()){
         estCo = true;
     }
 }

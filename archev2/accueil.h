@@ -16,7 +16,6 @@
 #include <QGridLayout>
 #include <index/connexion.h>
 
-class FenetrePrincipale;
 
 class Accueil : public QWidget
 {
@@ -28,7 +27,7 @@ public:
 
 
 private slots:
-    void handleButton(FenetrePrincipale& a);
+    void handleButton();
     void on_listeCours_clicked();
 
 signals:

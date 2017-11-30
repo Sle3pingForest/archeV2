@@ -1,10 +1,28 @@
 #ifndef ETUDIANT_H
 #define ETUDIANT_H
 
-class etudiant
+#include "string"
+#include "../gestionCours/listecours.h"
+
+class Etudiant
 {
+
 public:
-    etudiant();
+    Etudiant();
+    int getNbCoursMax();
+    int consulterNote();
+    //void inscrireCours(Cours& c);
+    //Cours selectCours();
+    std::string getNom();
+    std::string getPrenom();
+
+private:
+    std::string login;
+    std::string nom;
+    std::string prenom;
+    int nbCoursMax;
+    ListeCours listeDesCours;
+
 };
 
 #endif // ETUDIANT_H
