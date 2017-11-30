@@ -11,7 +11,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
-
+    co = new Connexion();
 
     labelimgAccueil = new QLabel(this);
     labelimgAccueil->setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
@@ -48,7 +48,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 }
 
 Accueil::~Accueil() {
-    delete this;
+    delete co;
 }
 
 void Accueil::on_listeCours_clicked() {
@@ -64,7 +64,6 @@ void Accueil::on_listeCours_clicked() {
 
 void Accueil::handleButton()
  {
-    co = new Connexion();
     co->exec();
     if(co->getLogingOk()){
         estCo = true;

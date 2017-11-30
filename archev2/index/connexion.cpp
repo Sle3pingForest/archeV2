@@ -42,7 +42,7 @@ Connexion::Connexion()
 }
 
 Connexion::~Connexion() {
-    delete this;
+    delete ca;
 }
 
 void Connexion::handleButton()
