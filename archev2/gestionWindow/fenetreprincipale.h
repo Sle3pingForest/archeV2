@@ -18,12 +18,13 @@ class FenetrePrincipale : public QMainWindow
     public:
         FenetrePrincipale();
         ~FenetrePrincipale();
+        bool getCo();
+        void setCo(bool v);
 
 
     public slots:
         void slotDisplayFen(int fenIndex);
-        bool getCo();
-        void setCo(bool v);
+
 
 
     private:
