@@ -24,6 +24,7 @@ public:
     Accueil(QWidget *parent = 0);
     ~Accueil();
     static void checkLoging(bool b);
+    void getCo();
 
 
 private slots:
@@ -32,6 +33,8 @@ private slots:
 
 signals:
     void askDisplayFen(int fenInd);
+
+
 
 private:
 
@@ -42,7 +45,7 @@ private:
     QGridLayout *gridLayout;
     QLabel *label, *label2;
     QLineEdit *urlEdit;
-    QPushButton *connexion, *listeCours;
+    QPushButton *connexion, *listeCours, *getC;
     QProgressBar *progression;
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
 };

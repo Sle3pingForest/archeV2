@@ -38,3 +38,11 @@ void FenetrePrincipale::slotDisplayFen(int fenIndex)
     if ((fenIndex < 0) || (fenIndex > 3)) {return;}
     stack->setCurrentIndex(fenIndex);
 }
+
+bool FenetrePrincipale::getCo() {
+    return co;
+}
+
+void FenetrePrincipale::setCo(bool v) {
+    co = v;
+}

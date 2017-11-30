@@ -23,6 +23,7 @@ private:
      QLabel *label, *label2;
      QGridLayout *gridLayout;
      QPushButton *connexion;
+     bool co=false;
 };
 
 #endif // LISTECOURS_H

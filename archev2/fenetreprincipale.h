@@ -22,6 +22,8 @@ class FenetrePrincipale : public QMainWindow
 
     public slots:
         void slotDisplayFen(int fenIndex);
+        bool getCo();
+        void setCo(bool v);
 
 
     private:
@@ -29,6 +31,7 @@ class FenetrePrincipale : public QMainWindow
         Accueil *fen1;
         ListeCours *fen2;
         Connexion *fen3;
+        bool co=false;
        /* FenetreSecondaire4 *fen4;*/
 };
 

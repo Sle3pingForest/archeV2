@@ -29,6 +29,12 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
 
+    getC = new QPushButton("test",this);
+    getC->setMaximumWidth(80);
+    getC->setMaximumHeight(30);
+    gridLayout->addWidget(getC,4,5);
+
+
     label2 = new QLabel(this);
     label2->setText("Footer");
     gridLayout->addWidget(label2,5,5);
@@ -39,6 +45,9 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
 
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
+
+    connect(getC, SIGNAL (clicked()), this, SLOT (getCo()));
+
 
     setLayout(gridLayout);
 
@@ -60,5 +69,9 @@ void Accueil::handleButton()
     cout<< "loginn est ok ? "<<co->getLogingOk()<<endl;
 }
 
+void Accueil::getCo() {
+    if (FenetrePincipale::getCo()) {
+    }
+}
 
 
