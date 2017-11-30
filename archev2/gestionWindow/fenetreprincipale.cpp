@@ -28,8 +28,9 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
 
 
 FenetrePrincipale::~FenetrePrincipale()
-{
-delete this;
+{        delete fen1;
+         delete fen2;
+         delete fen3; ;
 }
 
 
