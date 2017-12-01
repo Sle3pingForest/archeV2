@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-CXXFLAGS      = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
+CXXFLAGS      = -m64 -pipe -g -std=c++0x -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../archev2 -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -m64
@@ -52,8 +52,6 @@ SOURCES       = ../archev2/main.cpp \
 		../archev2/gestionCours/cours.cpp \
 		../archev2/gestionCours/listecours.cpp \
 		../archev2/gestionWindow/fenetreprincipale.cpp \
-		../archev2/gestionWindow/mainwindow.cpp \
-		../archev2/gestionWindow/newwindow.cpp \
 		../archev2/personne/etudiant.cpp \
 		../archev2/personne/enseignant.cpp \
 		../archev2/gestionCours/listecourenattente.cpp moc_accueil.cpp \
@@ -67,8 +65,6 @@ OBJECTS       = main.o \
 		cours.o \
 		listecours.o \
 		fenetreprincipale.o \
-		mainwindow.o \
-		newwindow.o \
 		etudiant.o \
 		enseignant.o \
 		listecourenattente.o \
@@ -122,6 +118,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qml_debug.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/declarative_debug.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf \
@@ -217,6 +214,7 @@ Makefile: ../archev2/archev2.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qml_debug.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/declarative_debug.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf \
@@ -283,6 +281,7 @@ Makefile: ../archev2/archev2.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qml_debug.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/declarative_debug.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf:
@@ -309,7 +308,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/archev21.0.0 || mkdir -p .tmp/archev21.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/accueil.h ../archev2/index/connexion.h ../archev2/index/checkauthentifiacation.h ../archev2/gestionCours/cours.h ../archev2/gestionCours/listecours.h ../archev2/gestionWindow/fenetreprincipale.h ../archev2/gestionWindow/mainwindow.h ../archev2/gestionWindow/newwindow.h ../archev2/personne/etudiant.h ../archev2/personne/enseignant.h ../archev2/gestionCours/listecourenattente.h .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/main.cpp ../archev2/accueil.cpp ../archev2/index/connexion.cpp ../archev2/index/checkauthentifiacation.cpp ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/listecours.cpp ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/gestionWindow/mainwindow.cpp ../archev2/gestionWindow/newwindow.cpp ../archev2/personne/etudiant.cpp ../archev2/personne/enseignant.cpp ../archev2/gestionCours/listecourenattente.cpp .tmp/archev21.0.0/ && (cd `dirname .tmp/archev21.0.0` && $(TAR) archev21.0.0.tar archev21.0.0 && $(COMPRESS) archev21.0.0.tar) && $(MOVE) `dirname .tmp/archev21.0.0`/archev21.0.0.tar.gz . && $(DEL_FILE) -r .tmp/archev21.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/accueil.h ../archev2/index/connexion.h ../archev2/index/checkauthentifiacation.h ../archev2/gestionCours/cours.h ../archev2/gestionCours/listecours.h ../archev2/gestionWindow/fenetreprincipale.h ../archev2/personne/etudiant.h ../archev2/personne/enseignant.h ../archev2/gestionCours/listecourenattente.h .tmp/archev21.0.0/ && $(COPY_FILE) --parents ../archev2/main.cpp ../archev2/accueil.cpp ../archev2/index/connexion.cpp ../archev2/index/checkauthentifiacation.cpp ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/listecours.cpp ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/personne/etudiant.cpp ../archev2/personne/enseignant.cpp ../archev2/gestionCours/listecourenattente.cpp .tmp/archev21.0.0/ && (cd `dirname .tmp/archev21.0.0` && $(TAR) archev21.0.0.tar archev21.0.0 && $(COMPRESS) archev21.0.0.tar) && $(MOVE) `dirname .tmp/archev21.0.0`/archev21.0.0.tar.gz . && $(DEL_FILE) -r .tmp/archev21.0.0
 
 
 clean:compiler_clean 
@@ -1284,6 +1283,11 @@ moc_fenetreprincipale.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
 		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QGridLayout \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
 		../archev2/accueil.h \
 		/usr/include/qt5/QtNetwork/QtNetwork \
 		/usr/include/qt5/QtNetwork/QtNetworkDepends \
@@ -1331,10 +1335,6 @@ moc_fenetreprincipale.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtNetwork/qtnetworkversion.h \
 		/usr/include/qt5/QtNetwork/QNetworkReply \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		/usr/include/qt5/QtWidgets/QLabel \
 		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
@@ -1344,7 +1344,6 @@ moc_fenetreprincipale.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
 		../archev2/index/connexion.h \
 		/usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtWidgets/qdialog.h \
@@ -2709,6 +2708,11 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
 		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QGridLayout \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
 		../archev2/accueil.h \
 		/usr/include/qt5/QtNetwork/QtNetwork \
 		/usr/include/qt5/QtNetwork/QtNetworkDepends \
@@ -2756,10 +2760,6 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		/usr/include/qt5/QtNetwork/qtnetworkversion.h \
 		/usr/include/qt5/QtNetwork/QNetworkReply \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		/usr/include/qt5/QtWidgets/QLabel \
 		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
@@ -2769,7 +2769,6 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
 		../archev2/index/connexion.h \
 		/usr/include/qt5/QtWidgets/QDialog \
 		/usr/include/qt5/QtWidgets/qdialog.h \
@@ -2779,12 +2778,6 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		../archev2/gestionCours/listecours.h \
 		../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fenetreprincipale.o ../archev2/gestionWindow/fenetreprincipale.cpp
-
-mainwindow.o: ../archev2/gestionWindow/mainwindow.cpp ../archev2/gestionWindow/mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../archev2/gestionWindow/mainwindow.cpp
-
-newwindow.o: ../archev2/gestionWindow/newwindow.cpp ../archev2/gestionWindow/newwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o newwindow.o ../archev2/gestionWindow/newwindow.cpp
 
 etudiant.o: ../archev2/personne/etudiant.cpp ../archev2/personne/etudiant.h \
 		../archev2/gestionCours/listecours.h \

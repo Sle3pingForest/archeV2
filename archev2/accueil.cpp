@@ -9,10 +9,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     gridLayout = new QGridLayout();
     gridLayout->setVerticalSpacing(0);
 
-
-
-    co = new Connexion();
-
     labelimgAccueil = new QLabel(this);
     labelimgAccueil->setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
     labelimgAccueil->show();
@@ -23,11 +19,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     gridLayout->addWidget(label,0,0,0,4);
 
 
-    connexion = new QPushButton("Connexion",this);
-    connexion->setMaximumWidth(80);
-    connexion->setMaximumHeight(30);
-    gridLayout->addWidget(connexion,0,5);
-
     listeCours = new QPushButton("Liste cours",this);
     listeCours->setMaximumWidth(80);
     listeCours->setMaximumHeight(30);
@@ -35,7 +26,8 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
-    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
+
+
 
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
 
@@ -46,7 +38,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 }
 
 Accueil::~Accueil() {
-    delete co;
 }
 
 void Accueil::on_listeCours_clicked() {
@@ -60,12 +51,7 @@ void Accueil::on_listeCours_clicked() {
     }
 }
 
-void Accueil::handleButton()
- {
-    co->exec();
-
-    if(co->getLogingOk()){
-        estCo = true;
-    }
+bool Accueil:: setEstCo(bool f){
+    estCo = f;
 }
 

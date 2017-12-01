@@ -18,7 +18,6 @@ public:
 
     ListeCours(QWidget *parent = 0);
     Cours* getCours(int i);
-    bool getEstResterCo();
     ~ListeCours();
     void ajouterCours(Cours *c);
     bool MetsDansTonQ(int i);
@@ -35,7 +34,6 @@ private:
     //QT Class
      QLabel *label, *label2;
      QGridLayout *gridLayout;
-     QPushButton *connexion;
 
 
      // Dev Clas & Attributs
@@ -44,12 +42,12 @@ private:
     /*string listNomDeCours[5] =  {"Toucan", "CPOA","ALGO","SYSTEM","LOGIQUE"};
     string listNomEns[5] =   {"teemo", "yasuo","yi","trym","garen"};*/
 
-     bool estResterCo;
 
 protected:
 
     string getNomDeCours(int i);
     string getNomDeEns(int i);
+
 
 };
 

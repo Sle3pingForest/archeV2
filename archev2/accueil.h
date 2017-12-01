@@ -23,11 +23,11 @@ class Accueil : public QWidget
         Q_OBJECT
 public:
     Accueil(QWidget *parent = 0);
+    bool setEstCo(bool f);
     ~Accueil();
 
 
 private slots:
-    void handleButton();
     void on_listeCours_clicked();
 
 signals:
@@ -38,14 +38,14 @@ signals:
 private:
 
     //QT class
-    Connexion *co;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout;
     QLabel *label, *label2, *labelimgAccueil;
     QLineEdit *urlEdit;
-    QPushButton *connexion, *listeCours, *getC;
+    QPushButton *listeCours;
     QProgressBar *progression;
+
 
     //DEV class
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.

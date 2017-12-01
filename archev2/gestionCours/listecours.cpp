@@ -12,12 +12,6 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     label->setAlignment(Qt::AlignHCenter);
     gridLayout->addWidget(label,0,0,0,4);
 
-    connexion = new QPushButton("log out",this);
-    connexion->setMaximumWidth(80);
-    connexion->setMaximumHeight(30);
-    gridLayout->addWidget(connexion,0,5);
-
-    connect(connexion, SIGNAL (clicked()), this, SLOT (handleButton()));
 
     setLayout(gridLayout);
 
@@ -48,21 +42,12 @@ ListeCours::~ListeCours() {
 
 void ListeCours::handleButton() {
     emit askDisplayFen(0);
-    estResterCo = false;
 }
 
 void ListeCours::ajouterCours(Cours *c) {
     listeCours.push_back(c);
 }
 
-bool ListeCours::getEstResterCo(){
-    return estResterCo;
-}
-
-bool ListeCours::MetsDansTonQ(int i) {
-
-    if (listeCours.size() < i) return true;
-}
 
 string ListeCours::getNomDeCours(int i){
 
