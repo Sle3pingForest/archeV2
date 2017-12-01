@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Accueil_t {
-    QByteArrayData data[8];
-    char stringdata[87];
+    QByteArrayData data[6];
+    char stringdata[66];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,13 +34,10 @@ QT_MOC_LITERAL(1, 8, 13),
 QT_MOC_LITERAL(2, 22, 0),
 QT_MOC_LITERAL(3, 23, 6),
 QT_MOC_LITERAL(4, 30, 12),
-QT_MOC_LITERAL(5, 43, 18),
-QT_MOC_LITERAL(6, 62, 1),
-QT_MOC_LITERAL(7, 64, 21)
+QT_MOC_LITERAL(5, 43, 21)
     },
     "Accueil\0askDisplayFen\0\0fenInd\0"
-    "handleButton\0FenetrePrincipale&\0a\0"
-    "on_listeCours_clicked\0"
+    "handleButton\0on_listeCours_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,14 +58,14 @@ static const uint qt_meta_data_Accueil[] = {
        1,    1,   29,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-       4,    1,   32,    2, 0x08,
-       7,    0,   35,    2, 0x08,
+       4,    0,   32,    2, 0x08,
+       5,    0,   33,    2, 0x08,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -80,7 +77,7 @@ void Accueil::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Accueil *_t = static_cast<Accueil *>(_o);
         switch (_id) {
         case 0: _t->askDisplayFen((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->handleButton((*reinterpret_cast< FenetrePrincipale(*)>(_a[1]))); break;
+        case 1: _t->handleButton(); break;
         case 2: _t->on_listeCours_clicked(); break;
         default: ;
         }

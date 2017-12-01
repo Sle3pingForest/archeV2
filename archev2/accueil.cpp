@@ -39,8 +39,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
 
-    connect(getC, SIGNAL (clicked()), this, SLOT (getCo()));
-
 
     setLayout(gridLayout);
 

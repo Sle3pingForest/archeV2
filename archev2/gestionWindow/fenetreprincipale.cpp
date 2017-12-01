@@ -48,6 +48,6 @@ void FenetrePrincipale::setCo(bool v) {
     co = v;
 }
 
-void FenetrePrincipale::ajouterCours(Cours c) {
+void FenetrePrincipale::ajouterCours(Cours *c) {
     fen2->ajouterCours(c);
 }

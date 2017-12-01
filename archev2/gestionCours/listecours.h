@@ -20,7 +20,7 @@ public:
     Cours* getCours(int i);
     bool getEstResterCo();
     ~ListeCours();
-    void ajouterCours(Cours& c);
+    void ajouterCours(Cours *c);
     bool MetsDansTonQ(int i);
 
 

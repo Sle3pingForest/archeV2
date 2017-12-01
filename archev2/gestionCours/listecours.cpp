@@ -1,4 +1,5 @@
 #include "listecours.h"
+#include <iostream>
 
 ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 {
@@ -23,15 +24,20 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
     //DEV
 
-    listeCours.push_back(new Cours("Toucan", "teemo"));
+    /* (std::vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
+        std::cout << ' ' << *it;
+      std::cout << '\n';*/
 
-    listeCours.push_back(new Cours("CPOA", "yasuo"));
+       int i =2;
+      for(std::vector<Cours*>::iterator it = listeCours.begin(); it != listeCours.end(); it++ ,i++)    {
+          /*label = ;
+          label->setText("LISTE COURS");
+          label->setAlignment(Qt::AlignHCenter);
+          gridLayout->addWidget(new QLabel(this)->setText(it),0,0,0,4);*/
+              std::cout<< *it << endl;  // prints d.
+      }
 
-    listeCours.push_back(new Cours("ALGO", "Master yi"));
 
-    listeCours.push_back(new Cours("SYSTEM", "tryn"));
-
-    listeCours.push_back(new Cours("LOGIQUE", "garen"));
 
 }
 
@@ -45,8 +51,8 @@ void ListeCours::handleButton() {
     estResterCo = false;
 }
 
-void ListeCours::ajouterCours(Cours& c) {
-    listeCours.push_back(&c);
+void ListeCours::ajouterCours(Cours *c) {
+    listeCours.push_back(c);
 }
 
 bool ListeCours::getEstResterCo(){
