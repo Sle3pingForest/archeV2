@@ -19,13 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Accueil_t {
-<<<<<<< HEAD
-    QByteArrayData data[6];
-    char stringdata[66];
-=======
     QByteArrayData data[5];
     char stringdata[53];
->>>>>>> f4f9ad2b1a173de64f300a9f2ea977920c769de2
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,18 +33,10 @@ QT_MOC_LITERAL(0, 0, 7),
 QT_MOC_LITERAL(1, 8, 13),
 QT_MOC_LITERAL(2, 22, 0),
 QT_MOC_LITERAL(3, 23, 6),
-<<<<<<< HEAD
-QT_MOC_LITERAL(4, 30, 12),
-QT_MOC_LITERAL(5, 43, 21)
-    },
-    "Accueil\0askDisplayFen\0\0fenInd\0"
-    "handleButton\0on_listeCours_clicked\0"
-=======
 QT_MOC_LITERAL(4, 30, 21)
     },
     "Accueil\0askDisplayFen\0\0fenInd\0"
     "on_listeCours_clicked\0"
->>>>>>> f4f9ad2b1a173de64f300a9f2ea977920c769de2
 };
 #undef QT_MOC_LITERAL
 
@@ -70,21 +57,12 @@ static const uint qt_meta_data_Accueil[] = {
        1,    1,   24,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-<<<<<<< HEAD
-       4,    0,   32,    2, 0x08,
-       5,    0,   33,    2, 0x08,
-=======
        4,    0,   27,    2, 0x08,
->>>>>>> f4f9ad2b1a173de64f300a9f2ea977920c769de2
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
 
  // slots: parameters
-<<<<<<< HEAD
-    QMetaType::Void,
-=======
->>>>>>> f4f9ad2b1a173de64f300a9f2ea977920c769de2
     QMetaType::Void,
 
        0        // eod
@@ -96,12 +74,7 @@ void Accueil::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Accueil *_t = static_cast<Accueil *>(_o);
         switch (_id) {
         case 0: _t->askDisplayFen((*reinterpret_cast< int(*)>(_a[1]))); break;
-<<<<<<< HEAD
-        case 1: _t->handleButton(); break;
-        case 2: _t->on_listeCours_clicked(); break;
-=======
         case 1: _t->on_listeCours_clicked(); break;
->>>>>>> f4f9ad2b1a173de64f300a9f2ea977920c769de2
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

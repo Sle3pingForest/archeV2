@@ -7,6 +7,7 @@
 #include <list>
 #include <vector>
 #include "cours.h"
+#include <QTableView>
 
 
 using namespace std;
@@ -34,6 +35,7 @@ private:
     //QT Class
      QLabel *label, *label2;
      QGridLayout *gridLayout;
+     QTableView *vueliste;
 
 
      // Dev Clas & Attributs

@@ -7,7 +7,7 @@ CheckAuthentifiacation::CheckAuthentifiacation(){
 
 void CheckAuthentifiacation::addUsers(){
     listUsers["sleeping"] = "123456";
-    listUsers["a"] = "z";
+    listUsers["a"] = "";
 }
 
 

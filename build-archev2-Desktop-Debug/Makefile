@@ -969,6 +969,23 @@ moc_listecours.cpp: /usr/include/qt5/QtWidgets/QLabel \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
 		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
 		../archev2/gestionCours/listecours.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionCours/listecours.h -o moc_listecours.cpp
 
@@ -1352,6 +1369,18 @@ moc_fenetreprincipale.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
 		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
 		../archev2/gestionWindow/fenetreprincipale.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionWindow/fenetreprincipale.h -o moc_fenetreprincipale.cpp
 
@@ -1749,7 +1778,19 @@ main.o: ../archev2/main.cpp /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../archev2/main.cpp
 
 accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h \
@@ -2393,7 +2434,27 @@ listecours.o: ../archev2/gestionCours/listecours.cpp ../archev2/gestionCours/lis
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
+		/usr/include/qt5/QtCore/QStringList \
+		/usr/include/qt5/QtGui/QStandardItemModel \
+		/usr/include/qt5/QtGui/qstandarditemmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listecours.o ../archev2/gestionCours/listecours.cpp
 
 fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/gestionWindow/fenetreprincipale.h \
@@ -2776,7 +2837,19 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fenetreprincipale.o ../archev2/gestionWindow/fenetreprincipale.cpp
 
 etudiant.o: ../archev2/personne/etudiant.cpp ../archev2/personne/etudiant.h \
@@ -2900,7 +2973,24 @@ etudiant.o: ../archev2/personne/etudiant.cpp ../archev2/personne/etudiant.h \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o etudiant.o ../archev2/personne/etudiant.cpp
 
 enseignant.o: ../archev2/personne/enseignant.cpp ../archev2/personne/enseignant.h \
@@ -3025,7 +3115,24 @@ enseignant.o: ../archev2/personne/enseignant.cpp ../archev2/personne/enseignant.
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtWidgets/QTableView \
+		/usr/include/qt5/QtWidgets/qtableview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o enseignant.o ../archev2/personne/enseignant.cpp
 
 listecourenattente.o: ../archev2/gestionCours/listecourenattente.cpp ../archev2/gestionCours/listecourenattente.h \

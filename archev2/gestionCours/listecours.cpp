@@ -1,6 +1,7 @@
 #include "listecours.h"
 #include <iostream>
-
+#include <QStringList>
+#include <QStandardItemModel>
 ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 {
     // QT
@@ -22,16 +23,33 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
         std::cout << ' ' << *it;
       std::cout << '\n';*/
 
-       int i =2;
-      for(std::vector<Cours*>::iterator it = listeCours.begin(); it != listeCours.end(); it++ ,i++)    {
-          /*label = ;
-          label->setText("LISTE COURS");
-          label->setAlignment(Qt::AlignHCenter);
-          gridLayout->addWidget(new QLabel(this)->setText(it),0,0,0,4);*/
+
+    QStringList entetes;
+    entetes << "Nom du cours" << "Enseignant" << "Inscription";
+    int i =0,j=0;
+   // vueliste->setHorizontalHeaderLabels(entetes);*
+   int column = listeCours.size();
+    QStandardItemModel *model = new QStandardItemModel(3, column,this);
+    model->setHorizontalHeaderItem(0, new QStandardItem("Nom cours"));
+    model->setHorizontalHeaderItem(1, new QStandardItem(QString("Enseignant")));
+    model->setHorizontalHeaderItem(2, new QStandardItem(QString("Inscription")));
+
+      for(std::vector<Cours*>::iterator it = listeCours.begin(); it != listeCours.end(); it++, i++)    {
+
+                //QString q = new QString((*it)->getNomCours());
+                model->setItem(i,0,new QStandardItem( QString( QString::fromStdString((*it)->getNomCours() ) ) ) );
+                model->setItem(i,1,new QStandardItem( QString( QString::fromStdString((*it)->getNomEnseignant() ) ) ) );
+                model->setItem(i,2,new QStandardItem( QString( QString::fromStdString((*it)->getNomCours() ) ) ) );
               std::cout<< *it << endl;  // prints d.
+                std::cout<< (*it)->getNomCours() ;
+              label->setText( QString::fromStdString((*it)->getNomCours() ) );
       }
 
 
+     /* vueliste = new QTableView(this);
+      vueliste->setModel(model);
+
+      gridLayout->addWidget(vueliste,100,20);*/
 
 }
 

@@ -79,8 +79,6 @@ bool FenetrePrincipale::getCo() {
     return co;
 }
 
-
-
 void FenetrePrincipale::ajouterCours(Cours *c) {
-    fen2->ajouterCours(c);
+    listeCours->ajouterCours(c);
 }
