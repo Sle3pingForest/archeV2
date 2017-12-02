@@ -22,6 +22,7 @@ class FenetrePrincipale : public QMainWindow
         bool getCo();
         void setCo(bool v);
         void ajouterCours(Cours *c);
+        void ajouterCoursListe(Cours *c);
 
     public slots:
         void slotDisplayFen(int fenIndex);

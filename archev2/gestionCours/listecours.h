@@ -8,6 +8,7 @@
 #include <vector>
 #include "cours.h"
 #include <QTableView>
+#include <QTableWidget>
 
 
 using namespace std;
@@ -22,10 +23,14 @@ public:
     ~ListeCours();
     void ajouterCours(Cours *c);
     bool MetsDansTonQ(int i);
+    void ajouterCoursListe(Cours *c);
 
 
 private slots:
      void handleButton();
+
+public slots:
+     void inscription(QString s);
 
 signals:
     void askDisplayFen(int fenInd);
@@ -36,7 +41,8 @@ private:
      QLabel *label, *label2;
      QGridLayout *gridLayout;
      QTableView *vueliste;
-
+     QTableWidget *listevue;
+     QList<Cours*> coursList;
 
      // Dev Clas & Attributs
 

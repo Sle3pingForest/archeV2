@@ -2,6 +2,10 @@
 #include <iostream>
 #include <QStringList>
 #include <QStandardItemModel>
+#include <QGraphicsScene>
+#include <QSignalMapper>
+#include <QTableWidgetItem>
+
 ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 {
     // QT
@@ -19,37 +23,85 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
     //DEV
 
-    /* (std::vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
-        std::cout << ' ' << *it;
-      std::cout << '\n';*/
 
-
-    QStringList entetes;
-    entetes << "Nom du cours" << "Enseignant" << "Inscription";
     int i =0,j=0;
-   // vueliste->setHorizontalHeaderLabels(entetes);*
-   int column = listeCours.size();
+
+
+
+
+
+    this->ajouterCoursListe( new Cours("Toucan", "teemo") );
+    this->ajouterCoursListe(new Cours("CPOA", "yasuo"));
+    this->ajouterCoursListe(new Cours("ALGO", "Master yi"));
+    int column = coursList.size();
+
     QStandardItemModel *model = new QStandardItemModel(3, column,this);
     model->setHorizontalHeaderItem(0, new QStandardItem("Nom cours"));
     model->setHorizontalHeaderItem(1, new QStandardItem(QString("Enseignant")));
     model->setHorizontalHeaderItem(2, new QStandardItem(QString("Inscription")));
 
-      for(std::vector<Cours*>::iterator it = listeCours.begin(); it != listeCours.end(); it++, i++)    {
 
-                //QString q = new QString((*it)->getNomCours());
-                model->setItem(i,0,new QStandardItem( QString( QString::fromStdString((*it)->getNomCours() ) ) ) );
-                model->setItem(i,1,new QStandardItem( QString( QString::fromStdString((*it)->getNomEnseignant() ) ) ) );
-                model->setItem(i,2,new QStandardItem( QString( QString::fromStdString((*it)->getNomCours() ) ) ) );
-              std::cout<< *it << endl;  // prints d.
-                std::cout<< (*it)->getNomCours() ;
-              label->setText( QString::fromStdString((*it)->getNomCours() ) );
+    vueliste = new QTableView(this);
+
+    QSignalMapper *mapper = new QSignalMapper(this);
+    connect(mapper, SIGNAL(mapped(QString)), this, SLOT(inscription(QString)));
+
+    for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+
+        model->setItem(i,0,new QStandardItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
+        model->setItem(i,1,new QStandardItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
+
+
+
+    }
+
+
+
+
+    // -------------------------
+
+   /* listevue = new QTableWidget(this);
+
+    listevue->setHorizontalHeaderItem(0, new QTableWidgetItem("Nom cours"));
+    listevue->setHorizontalHeaderItem(1, new QTableWidgetItem(QString("Enseignant")));
+    listevue->setHorizontalHeaderItem(2, new QTableWidgetItem(QString("Inscription")));
+
+
+    QSignalMapper *mapper = new QSignalMapper();
+
+      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+
+           QPushButton *qb = new QPushButton("inscription") ;
+
+           connect(qb, SIGNAL(clicked() ), mapper , SLOT(map() ));
+           mapper->setMapping(qb, QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+           listevue->setItem(i,0,new QTableWidgetItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
+           listevue->setItem(i,1,new QTableWidgetItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
+           listevue->setCellWidget(i,2, qb);
       }
 
+      connect(mapper, SIGNAL(mapped(QString)), this, SLOT(inscription(QString)));*/
 
-     /* vueliste = new QTableView(this);
-      vueliste->setModel(model);
 
-      gridLayout->addWidget(vueliste,100,20);*/
+
+     vueliste = new QTableView(this);
+     vueliste->setModel(model);
+     i =0;
+
+      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+
+        QPushButton *qb = new QPushButton("inscription") ;
+        vueliste->setIndexWidget(model->index(i,2), qb);
+        mapper->setMapping(qb, QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+        connect(qb, SIGNAL(clicked() ), mapper , SLOT(map() ));
+    }
+
+      gridLayout->addWidget(vueliste,100,20);
+
+      std::cout<< "test" << endl;
+
 
 }
 
@@ -64,6 +116,10 @@ void ListeCours::handleButton() {
 
 void ListeCours::ajouterCours(Cours *c) {
     listeCours.push_back(c);
+}
+
+void ListeCours::ajouterCoursListe(Cours *c) {
+    coursList.append(c);
 }
 
 
@@ -86,4 +142,9 @@ string ListeCours::getNomDeEns(int i){
 
 Cours* ListeCours::getCours(int i){
     return listeCours[i];
+}
+
+
+void ListeCours::inscription(QString s){
+    std::cout<< s.toStdString() << endl;
 }

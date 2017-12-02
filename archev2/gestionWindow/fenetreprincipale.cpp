@@ -82,3 +82,7 @@ bool FenetrePrincipale::getCo() {
 void FenetrePrincipale::ajouterCours(Cours *c) {
     listeCours->ajouterCours(c);
 }
+
+void FenetrePrincipale::ajouterCoursListe(Cours *c) {
+    listeCours->ajouterCoursListe(c);
+}

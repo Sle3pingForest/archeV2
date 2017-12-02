@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\accueil.o
+./debug\connexion.o
+./debug\checkauthentifiacation.o
+./debug\cours.o
+./debug\listecours.o
+./debug\fenetreprincipale.o
+./debug\etudiant.o
+./debug\enseignant.o
+./debug\listecourenattente.o
+./debug\moc_accueil.o
+./debug\moc_connexion.o
+./debug\moc_listecours.o
+./debug\moc_fenetreprincipale.o
+);

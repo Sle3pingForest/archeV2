@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\accueil.o
+./release\connexion.o
+./release\checkauthentifiacation.o
+./release\cours.o
+./release\listecours.o
+./release\fenetreprincipale.o
+./release\etudiant.o
+./release\enseignant.o
+./release\listecourenattente.o
+./release\moc_accueil.o
+./release\moc_connexion.o
+./release\moc_listecours.o
+./release\moc_fenetreprincipale.o
+);
