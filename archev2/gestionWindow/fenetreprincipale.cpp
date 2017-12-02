@@ -7,26 +7,29 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     setWindowTitle("FenPrin");
 
 
-    layout = new QGridLayout();
-    layout->setVerticalSpacing(0);
-
     stack = new QStackedWidget(this);
+    qtool = new QToolBar();
+
+
 
 
     accueil = new Accueil(this);
     listeCours = new ListeCours(this);
     co = new Connexion();
 
+
      logout = new QPushButton("Log out",this);
      logout->setMaximumWidth(80);
      logout->setMaximumHeight(30);
-     connect(logout, SIGNAL (clicked()), this, SLOT (deconnecter()));
+     connect(logout, SIGNAL (askDisplayFen(int)), this, SLOT (deconnecter()));
 
 
      connexion = new QPushButton("Connexion",this);
      connexion->setMaximumWidth(80);
      connexion->setMaximumHeight(30);
      connect(connexion, SIGNAL (clicked()), this, SLOT (connecter()));
+
+    qtool->addWidget(connexion);
 
 
     //fen3 = new Connexion();
@@ -36,13 +39,9 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     stack->addWidget(accueil);
     stack->addWidget(listeCours);
 
-    layout->addWidget(connexion,0,0);
-    layout->addWidget(logout,1,0);
-
-    setLayout(layout);
-
     this->setCentralWidget(stack);
-    stack->setCurrentIndex(0); // on affiche la première fenêtre à l'ouverture du programme
+    this->addToolBar(qtool);
+    //stack->setCurrentIndex(0); // on affiche la première fenêtre à l'ouverture du programme
 
     connect(accueil, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
     connect(listeCours, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
@@ -56,9 +55,13 @@ FenetrePrincipale::~FenetrePrincipale()
 
 void FenetrePrincipale::connecter()
  {
-    co->exec();
-    if(co->getLogingOk()){
-        accueil->setEstCo(true);
+    if(!accueil->getEstCo()){
+        co->exec();
+        if(co->getLogingOk()){
+            accueil->setEstCo(true);
+            qtool->addWidget(logout);
+            connexion->setEnabled(false);
+        }
     }
 }
 

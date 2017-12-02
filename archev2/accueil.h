@@ -24,6 +24,8 @@ class Accueil : public QWidget
 public:
     Accueil(QWidget *parent = 0);
     bool setEstCo(bool f);
+    bool getEstCo();
+
     ~Accueil();
 
 
