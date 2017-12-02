@@ -21,7 +21,7 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
      logout = new QPushButton("Log out",this);
      logout->setMaximumWidth(80);
      logout->setMaximumHeight(30);
-     connect(logout, SIGNAL (askDisplayFen(int)), this, SLOT (deconnecter()));
+     connect(logout, SIGNAL (clicked()), this, SLOT (deconnecter()));
 
 
      connexion = new QPushButton("Connexion",this);
@@ -68,6 +68,7 @@ void FenetrePrincipale::connecter()
 void FenetrePrincipale::deconnecter()
  {
      accueil->setEstCo(false);
+     this->slotDisplayFen(0);
 
 }
 
