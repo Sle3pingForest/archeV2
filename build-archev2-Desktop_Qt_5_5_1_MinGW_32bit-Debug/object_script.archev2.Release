@@ -9,6 +9,7 @@ INPUT(
 ./release\etudiant.o
 ./release\enseignant.o
 ./release\listecourenattente.o
+./release\personne.o
 ./release\moc_accueil.o
 ./release\moc_connexion.o
 ./release\moc_listecours.o

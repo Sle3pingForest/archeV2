@@ -52,7 +52,8 @@ SOURCES       = ..\archev2\main.cpp \
 		..\archev2\gestionWindow\fenetreprincipale.cpp \
 		..\archev2\personne\etudiant.cpp \
 		..\archev2\personne\enseignant.cpp \
-		..\archev2\gestionCours\listecourenattente.cpp release\moc_accueil.cpp \
+		..\archev2\gestionCours\listecourenattente.cpp \
+		..\archev2\personne\personne.cpp release\moc_accueil.cpp \
 		release\moc_connexion.cpp \
 		release\moc_listecours.cpp \
 		release\moc_fenetreprincipale.cpp
@@ -66,6 +67,7 @@ OBJECTS       = release/main.o \
 		release/etudiant.o \
 		release/enseignant.o \
 		release/listecourenattente.o \
+		release/personne.o \
 		release/moc_accueil.o \
 		release/moc_connexion.o \
 		release/moc_listecours.o \
@@ -79,7 +81,8 @@ DIST          =  ..\archev2\accueil.h \
 		..\archev2\gestionWindow\fenetreprincipale.h \
 		..\archev2\personne\etudiant.h \
 		..\archev2\personne\enseignant.h \
-		..\archev2\gestionCours\listecourenattente.h ..\archev2\main.cpp \
+		..\archev2\gestionCours\listecourenattente.h \
+		..\archev2\personne\personne.h ..\archev2\main.cpp \
 		..\archev2\accueil.cpp \
 		..\archev2\index\connexion.cpp \
 		..\archev2\index\checkauthentifiacation.cpp \
@@ -88,7 +91,8 @@ DIST          =  ..\archev2\accueil.h \
 		..\archev2\gestionWindow\fenetreprincipale.cpp \
 		..\archev2\personne\etudiant.cpp \
 		..\archev2\personne\enseignant.cpp \
-		..\archev2\gestionCours\listecourenattente.cpp
+		..\archev2\gestionCours\listecourenattente.cpp \
+		..\archev2\personne\personne.cpp
 QMAKE_TARGET  = archev2
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = archev2.exe
@@ -127,7 +131,7 @@ dist:
 	$(ZIP) archev2.zip $(SOURCES) $(DIST) ..\archev2\archev2.pro C:\Qt\5.5\mingw492_32\mkspecs\features\spec_pre.prf C:\Qt\5.5\mingw492_32\mkspecs\qdevice.pri C:\Qt\5.5\mingw492_32\mkspecs\features\device_config.prf C:\Qt\5.5\mingw492_32\mkspecs\qconfig.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dcollision.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dcollision_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquickrenderer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquickrenderer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3drenderer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3drenderer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_core.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_enginio.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_enginio_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_help.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_location.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_network.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkit.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkit_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkitwidgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.5\mingw492_32\mkspecs\features\qt_functions.prf C:\Qt\5.5\mingw492_32\mkspecs\features\qt_config.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\qt_config.prf C:\Qt\5.5\mingw492_32\mkspecs\win32-g++\qmake.conf C:\Qt\5.5\mingw492_32\mkspecs\features\spec_post.prf C:\Qt\5.5\mingw492_32\mkspecs\features\exclusive_builds.prf C:\Qt\5.5\mingw492_32\mkspecs\features\default_pre.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\default_pre.prf C:\Qt\5.5\mingw492_32\mkspecs\features\resolve_config.prf C:\Qt\5.5\mingw492_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.5\mingw492_32\mkspecs\features\default_post.prf C:\Qt\5.5\mingw492_32\mkspecs\features\build_pass.prf C:\Qt\5.5\mingw492_32\mkspecs\features\c++11.prf C:\Qt\5.5\mingw492_32\mkspecs\features\qml_debug.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\rtti.prf C:\Qt\5.5\mingw492_32\mkspecs\features\precompile_header.prf C:\Qt\5.5\mingw492_32\mkspecs\features\warn_on.prf C:\Qt\5.5\mingw492_32\mkspecs\features\qt.prf C:\Qt\5.5\mingw492_32\mkspecs\features\resources.prf C:\Qt\5.5\mingw492_32\mkspecs\features\moc.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\opengl.prf C:\Qt\5.5\mingw492_32\mkspecs\features\uic.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\windows.prf C:\Qt\5.5\mingw492_32\mkspecs\features\testcase_targets.prf C:\Qt\5.5\mingw492_32\mkspecs\features\exceptions.prf C:\Qt\5.5\mingw492_32\mkspecs\features\yacc.prf C:\Qt\5.5\mingw492_32\mkspecs\features\lex.prf ..\archev2\archev2.pro C:/Qt/5.5/mingw492_32/lib/qtmain.prl C:/Qt/5.5/mingw492_32/lib/Qt5Widgets.prl C:/Qt/5.5/mingw492_32/lib/Qt5Gui.prl C:/Qt/5.5/mingw492_32/lib/Qt5Network.prl C:/Qt/5.5/mingw492_32/lib/Qt5Core.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\accueil.o release\connexion.o release\checkauthentifiacation.o release\cours.o release\listecours.o release\fenetreprincipale.o release\etudiant.o release\enseignant.o release\listecourenattente.o release\moc_accueil.o release\moc_connexion.o release\moc_listecours.o release\moc_fenetreprincipale.o
+	-$(DEL_FILE) release\main.o release\accueil.o release\connexion.o release\checkauthentifiacation.o release\cours.o release\listecours.o release\fenetreprincipale.o release\etudiant.o release\enseignant.o release\listecourenattente.o release\personne.o release\moc_accueil.o release\moc_connexion.o release\moc_listecours.o release\moc_fenetreprincipale.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -783,6 +787,8 @@ release/moc_listecours.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
 		../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -1201,6 +1207,7 @@ release/moc_fenetreprincipale.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QAppl
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -1631,6 +1638,7 @@ release/main.o: ../archev2/main.cpp C:/Qt/5.5/mingw492_32/include/QtWidgets/QApp
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtoolbar.h \
 		../archev2/gestionCours/listecours.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -2173,7 +2181,50 @@ release/connexion.o: ../archev2/index/connexion.cpp ../archev2/index/connexion.h
 release/checkauthentifiacation.o: ../archev2/index/checkauthentifiacation.cpp ../archev2/index/checkauthentifiacation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\checkauthentifiacation.o ..\archev2\index\checkauthentifiacation.cpp
 
-release/cours.o: ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/cours.h
+release/cours.o: ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\cours.o ..\archev2\gestionCours\cours.cpp
 
 release/listecours.o: ../archev2/gestionCours/listecours.cpp ../archev2/gestionCours/listecours.h \
@@ -2291,6 +2342,8 @@ release/listecours.o: ../archev2/gestionCours/listecours.cpp ../archev2/gestionC
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
 		../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -2718,6 +2771,7 @@ release/fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../a
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -2850,6 +2904,8 @@ release/etudiant.o: ../archev2/personne/etudiant.cpp ../archev2/personne/etudian
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
 		../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -2988,6 +3044,8 @@ release/enseignant.o: ../archev2/personne/enseignant.cpp ../archev2/personne/ens
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
 		../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		../archev2/personne/personne.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -3010,8 +3068,98 @@ release/enseignant.o: ../archev2/personne/enseignant.cpp ../archev2/personne/ens
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\enseignant.o ..\archev2\personne\enseignant.cpp
 
 release/listecourenattente.o: ../archev2/gestionCours/listecourenattente.cpp ../archev2/gestionCours/listecourenattente.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\listecourenattente.o ..\archev2\gestionCours\listecourenattente.cpp
+
+release/personne.o: ../archev2/personne/personne.cpp ../archev2/personne/personne.h \
+		../archev2/gestionCours/cours.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QList \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\personne.o ..\archev2\personne\personne.cpp
 
 release/moc_accueil.o: release/moc_accueil.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_accueil.o release\moc_accueil.cpp

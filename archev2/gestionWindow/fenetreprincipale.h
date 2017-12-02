@@ -26,10 +26,12 @@ class FenetrePrincipale : public QMainWindow
 
     public slots:
         void slotDisplayFen(int fenIndex);
+        void slotPersonCo(std::string s);
         void connecter();
         void deconnecter();
     signals:
         void askDisplayFen(int fenInd);
+        void askPersonCo(std::string s);
 
 
 

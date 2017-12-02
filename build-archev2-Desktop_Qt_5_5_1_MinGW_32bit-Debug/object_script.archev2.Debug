@@ -9,6 +9,7 @@ INPUT(
 ./debug\etudiant.o
 ./debug\enseignant.o
 ./debug\listecourenattente.o
+./debug\personne.o
 ./debug\moc_accueil.o
 ./debug\moc_connexion.o
 ./debug\moc_listecours.o

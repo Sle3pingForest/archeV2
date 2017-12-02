@@ -45,6 +45,8 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
 
     connect(accueil, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
     connect(listeCours, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
+
+    connect(co, SIGNAL(askPersonCo(std::string)), this, SLOT(slotPersonCo(std::string)));
 }
 
 
@@ -77,6 +79,13 @@ void FenetrePrincipale::slotDisplayFen(int fenIndex)
 {
     if ((fenIndex < 0) || (fenIndex > 3)) {return;}
     stack->setCurrentIndex(fenIndex);
+}
+
+void FenetrePrincipale::slotPersonCo(std::string s) {
+     std::cout<< "EMIT SLOT PERSON " << endl;
+    listeCours->setPersonCo(s);
+
+
 }
 
 bool FenetrePrincipale::getCo() {

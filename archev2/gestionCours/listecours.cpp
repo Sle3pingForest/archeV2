@@ -19,7 +19,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
 
     setLayout(gridLayout);
-
+    personCo = 0;
 
     //DEV
 
@@ -29,6 +29,10 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     this->ajouterCoursListe( new Cours("Toucan" , "teemo") );
     this->ajouterCoursListe( new Cours("CPOA" , "yasuo"));
     this->ajouterCoursListe( new Cours("ALGO" , "Master yi"));
+
+    personlist.append(new Personne("sleeping", "forest",1));
+    personlist.append(new Personne("a", "z",1));
+
     int column = coursList.size();
 
     QStandardItemModel *model = new QStandardItemModel(3, column,this);
@@ -82,13 +86,22 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
      QSignalMapper *mapper = new QSignalMapper(this);
      connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
 
-      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+        buttons.clear();
 
-        QPushButton *qb = new QPushButton("inscription") ;
-        vueliste->setIndexWidget(model->index(i,2), qb);
-        mapper->setMapping(qb , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++)    {
 
-        connect(qb , SIGNAL(clicked() ) , mapper , SLOT(map() ));
+
+        buttons.append( new QPushButton("inscription"));
+        vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
+        mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+        connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
+
+
+        std::cout<< buttons.at(i)->text().toStdString() << endl;
+
+        i++;
+
     }
 
       gridLayout->addWidget(vueliste,100,20);
@@ -139,5 +152,38 @@ Cours* ListeCours::getCours(int i){
 
 
 void ListeCours::inscription(QString s){
-    std::cout<< s.toStdString() << endl;
+    bool trouve =false;
+
+    std::cout<< "TAS INTERET A TAFFICHER BOUCLE EXTER " << endl;
+
+    QList<Cours*>::iterator it = coursList.begin();
+    while(it != coursList.end() && !trouve) {
+        if ( (*it)->getNomCours() == s.toStdString()) {
+             personlist.at(personCo)->ajouterCours( (*it) );
+             trouve = true;
+
+             std::cout<< "AJOUT DU COURS "+s.toStdString()  << endl;
+
+        }
+        it++;
+    }
+}
+
+void ListeCours::setPersonCo(std::string i) {
+    int a = 0;
+    bool trouve =false;
+    std::cout<< "TAS INTERET A TAFFICHER " << endl;
+    QList<Personne*>::iterator it = personlist.begin();
+    while(it != personlist.end() && !trouve)    {
+        if ( (*it)->getNom() == i) {
+            personCo = a;
+            trouve = true;
+        }
+        it++,
+        a++;
+    }
+}
+
+QList<Personne*> ListeCours::getPersonList() {
+    return personlist;
 }

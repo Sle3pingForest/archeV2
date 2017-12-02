@@ -7,6 +7,7 @@
 #include <list>
 #include <vector>
 #include "cours.h"
+#include "../personne/personne.h"
 #include <QTableView>
 #include <QTableWidget>
 
@@ -24,7 +25,8 @@ public:
     void ajouterCours(Cours *c);
     bool MetsDansTonQ(int i);
     void ajouterCoursListe(Cours *c);
-
+    QList<Personne*> getPersonList();
+    void setPersonCo(std::string i);
 
 private slots:
      void handleButton();
@@ -43,6 +45,9 @@ private:
      QTableView *vueliste;
      QTableWidget *listevue;
      QList<Cours*> coursList;
+     QList<Personne*> personlist;
+     QList<QPushButton*> buttons;
+     int personCo;
 
      // Dev Clas & Attributs
 
