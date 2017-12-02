@@ -30,6 +30,9 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
      connect(connexion, SIGNAL (clicked()), this, SLOT (connecter()));
 
     qtool->addWidget(connexion);
+    qtool->addWidget(logout);
+
+    logout->setEnabled(false);
 
 
     //fen3 = new Connexion();
@@ -61,8 +64,8 @@ void FenetrePrincipale::connecter()
         co->exec();
         if(co->getLogingOk()){
             accueil->setEstCo(true);
-            qtool->addWidget(logout);
             connexion->setEnabled(false);
+            logout->setEnabled(true);
         }
     }
 }
@@ -71,6 +74,8 @@ void FenetrePrincipale::deconnecter()
  {
      accueil->setEstCo(false);
      this->slotDisplayFen(0);
+     connexion->setEnabled(true);
+     logout->setEnabled(false);
 
 }
 
