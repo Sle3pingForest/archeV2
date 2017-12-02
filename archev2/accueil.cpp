@@ -55,3 +55,8 @@ bool Accueil:: setEstCo(bool f){
     estCo = f;
 }
 
+bool Accueil:: getEstCo(){
+    return estCo;
+}
+
+

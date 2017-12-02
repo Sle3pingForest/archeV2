@@ -5,8 +5,8 @@
 #include <QMainWindow>
 #include <QtGui>
 #include <QStackedWidget>
-#include <QGridLayout>
-
+#include <QToolBar>
+#include <QLabel>
 #include "accueil.h"
 #include "./index/connexion.h"
 #include "./gestionCours/listecours.h"
@@ -28,6 +28,8 @@ class FenetrePrincipale : public QMainWindow
         void slotDisplayFen(int fenIndex);
         void connecter();
         void deconnecter();
+    signals:
+        void askDisplayFen(int fenInd);
 
 
 
@@ -36,7 +38,7 @@ class FenetrePrincipale : public QMainWindow
         //QT
         QStackedWidget *stack;
         QPushButton *connexion, *logout;
-        QGridLayout *layout;
+        QToolBar *qtool;
 
         Accueil *accueil;
         ListeCours *listeCours;
