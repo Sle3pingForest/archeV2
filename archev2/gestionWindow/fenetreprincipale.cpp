@@ -87,7 +87,6 @@ void FenetrePrincipale::slotDisplayFen(int fenIndex)
 }
 
 void FenetrePrincipale::slotPersonCo(std::string s) {
-     std::cout<< "EMIT SLOT PERSON " << endl;
     listeCours->setPersonCo(s);
 
 

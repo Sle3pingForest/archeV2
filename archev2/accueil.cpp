@@ -11,6 +11,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
     labelimgAccueil = new QLabel(this);
     labelimgAccueil->setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
+    //labelimgAccueil->setPixmap(QPixmap("img/accueil.jpg"));
     labelimgAccueil->show();
 
     label = new QLabel(this);
@@ -20,9 +21,15 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
     listeCours = new QPushButton("Liste cours",this);
-    listeCours->setMaximumWidth(80);
+    listeCours->setMaximumWidth(100);
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
+
+    proposer = new QPushButton("Proposer cours",this);
+    proposer->setMaximumWidth(100);
+    proposer->setMaximumHeight(30);
+    gridLayout->addWidget(proposer,3,5);
+
 
 
 
@@ -30,6 +37,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
+    connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
 
 
     setLayout(gridLayout);
@@ -38,6 +46,13 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 }
 
 Accueil::~Accueil() {
+}
+
+void Accueil::on_proposer_clicked() {
+
+        QMessageBox::warning(this, tr("Exces error"),
+                                        tr("Fonctionnalite en cour de developpement "),
+                                       QMessageBox::Ok);
 }
 
 void Accueil::on_listeCours_clicked() {
@@ -51,7 +66,7 @@ void Accueil::on_listeCours_clicked() {
     }
 }
 
-bool Accueil:: setEstCo(bool f){
+void Accueil:: setEstCo(bool f){
     estCo = f;
 }
 

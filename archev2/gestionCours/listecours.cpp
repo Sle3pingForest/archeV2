@@ -24,7 +24,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     //DEV
 
 
-    int i =0,j=0;
+    int i =0;
 
     this->ajouterCoursListe( new Cours("Toucan" , "teemo") );
     this->ajouterCoursListe( new Cours("CPOA" , "yasuo"));
@@ -98,15 +98,12 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
         connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
 
 
-        std::cout<< buttons.at(i)->text().toStdString() << endl;
-
         i++;
 
     }
 
       gridLayout->addWidget(vueliste,100,20);
 
-      std::cout<< "test" << endl;
 
 
 }
@@ -142,6 +139,7 @@ string ListeCours::getNomDeEns(int i){
         std::advance(it, i);
     }
 */
+    i++;
     return "ENS" ;
 }
 
@@ -154,7 +152,6 @@ Cours* ListeCours::getCours(int i){
 void ListeCours::inscription(QString s){
     bool trouve =false;
 
-    std::cout<< "TAS INTERET A TAFFICHER BOUCLE EXTER " << endl;
 
     QList<Cours*>::iterator it = coursList.begin();
     while(it != coursList.end() && !trouve) {
@@ -172,7 +169,6 @@ void ListeCours::inscription(QString s){
 void ListeCours::setPersonCo(std::string i) {
     int a = 0;
     bool trouve =false;
-    std::cout<< "TAS INTERET A TAFFICHER " << endl;
     QList<Personne*>::iterator it = personlist.begin();
     while(it != personlist.end() && !trouve)    {
         if ( (*it)->getNom() == i) {

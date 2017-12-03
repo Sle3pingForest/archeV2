@@ -57,7 +57,8 @@ SOURCES       = ../archev2/main.cpp \
 		../archev2/gestionWindow/fenetreprincipale.cpp \
 		../archev2/personne/etudiant.cpp \
 		../archev2/personne/enseignant.cpp \
-		../archev2/gestionCours/listecourenattente.cpp moc_accueil.cpp \
+		../archev2/gestionCours/listecourenattente.cpp \
+		../archev2/personne/personne.cpp moc_accueil.cpp \
 		moc_connexion.cpp \
 		moc_listecours.cpp \
 		moc_fenetreprincipale.cpp
@@ -71,6 +72,7 @@ OBJECTS       = main.o \
 		etudiant.o \
 		enseignant.o \
 		listecourenattente.o \
+		personne.o \
 		moc_accueil.o \
 		moc_connexion.o \
 		moc_listecours.o \
@@ -142,7 +144,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../archev2/gestionWindow/fenetreprincipale.h \
 		../archev2/personne/etudiant.h \
 		../archev2/personne/enseignant.h \
-		../archev2/gestionCours/listecourenattente.h ../archev2/main.cpp \
+		../archev2/gestionCours/listecourenattente.h \
+		../archev2/personne/personne.h ../archev2/main.cpp \
 		../archev2/accueil.cpp \
 		../archev2/index/connexion.cpp \
 		../archev2/index/checkauthentifiacation.cpp \
@@ -151,7 +154,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../archev2/gestionWindow/fenetreprincipale.cpp \
 		../archev2/personne/etudiant.cpp \
 		../archev2/personne/enseignant.cpp \
-		../archev2/gestionCours/listecourenattente.cpp
+		../archev2/gestionCours/listecourenattente.cpp \
+		../archev2/personne/personne.cpp
 QMAKE_TARGET  = archev2
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = archev2
@@ -325,8 +329,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../archev2/accueil.h ../archev2/index/connexion.h ../archev2/index/checkauthentifiacation.h ../archev2/gestionCours/cours.h ../archev2/gestionCours/listecours.h ../archev2/gestionWindow/fenetreprincipale.h ../archev2/personne/etudiant.h ../archev2/personne/enseignant.h ../archev2/gestionCours/listecourenattente.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../archev2/main.cpp ../archev2/accueil.cpp ../archev2/index/connexion.cpp ../archev2/index/checkauthentifiacation.cpp ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/listecours.cpp ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/personne/etudiant.cpp ../archev2/personne/enseignant.cpp ../archev2/gestionCours/listecourenattente.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../archev2/accueil.h ../archev2/index/connexion.h ../archev2/index/checkauthentifiacation.h ../archev2/gestionCours/cours.h ../archev2/gestionCours/listecours.h ../archev2/gestionWindow/fenetreprincipale.h ../archev2/personne/etudiant.h ../archev2/personne/enseignant.h ../archev2/gestionCours/listecourenattente.h ../archev2/personne/personne.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../archev2/main.cpp ../archev2/accueil.cpp ../archev2/index/connexion.cpp ../archev2/index/checkauthentifiacation.cpp ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/listecours.cpp ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/personne/etudiant.cpp ../archev2/personne/enseignant.cpp ../archev2/gestionCours/listecourenattente.cpp ../archev2/personne/personne.cpp $(DISTDIR)/
 
 
 clean:compiler_clean 
@@ -362,6 +366,7 @@ moc_connexion.cpp: ../archev2/index/checkauthentifiacation.h \
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/sf_hoaphivu/Bureau/archeV2/archev2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/index/connexion.h -o moc_connexion.cpp
 
 moc_listecours.cpp: ../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionCours/listecours.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/sf_hoaphivu/Bureau/archeV2/archev2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionCours/listecours.h -o moc_listecours.cpp
 
@@ -370,6 +375,7 @@ moc_fenetreprincipale.cpp: ../archev2/accueil.h \
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionWindow/fenetreprincipale.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/sf_hoaphivu/Bureau/archeV2/archev2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionWindow/fenetreprincipale.h -o moc_fenetreprincipale.cpp
 
@@ -392,7 +398,8 @@ main.o: ../archev2/main.cpp ../archev2/accueil.h \
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionWindow/fenetreprincipale.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../archev2/main.cpp
 
 accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h \
@@ -411,7 +418,8 @@ cours.o: ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cours.o ../archev2/gestionCours/cours.cpp
 
 listecours.o: ../archev2/gestionCours/listecours.cpp ../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listecours.o ../archev2/gestionCours/listecours.cpp
 
 fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/gestionWindow/fenetreprincipale.h \
@@ -419,23 +427,30 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		../archev2/index/connexion.h \
 		../archev2/index/checkauthentifiacation.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fenetreprincipale.o ../archev2/gestionWindow/fenetreprincipale.cpp
 
 etudiant.o: ../archev2/personne/etudiant.cpp ../archev2/personne/etudiant.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o etudiant.o ../archev2/personne/etudiant.cpp
 
 enseignant.o: ../archev2/personne/enseignant.cpp ../archev2/personne/enseignant.h \
 		../archev2/personne/etudiant.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/gestionCours/cours.h
+		../archev2/gestionCours/cours.h \
+		../archev2/personne/personne.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o enseignant.o ../archev2/personne/enseignant.cpp
 
 listecourenattente.o: ../archev2/gestionCours/listecourenattente.cpp ../archev2/gestionCours/listecourenattente.h \
 		../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listecourenattente.o ../archev2/gestionCours/listecourenattente.cpp
+
+personne.o: ../archev2/personne/personne.cpp ../archev2/personne/personne.h \
+		../archev2/gestionCours/cours.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o personne.o ../archev2/personne/personne.cpp
 
 moc_accueil.o: moc_accueil.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_accueil.o moc_accueil.cpp

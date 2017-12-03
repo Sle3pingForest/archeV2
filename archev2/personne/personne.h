@@ -10,7 +10,7 @@ class Personne
 {
 public:
     Personne(std::string s, std::string ss,int i);
-    Etudiant();
+    //Etudiant();
     int getNbCoursMax();
     int consulterNote();
     //void inscrireCours(Cours& c);
