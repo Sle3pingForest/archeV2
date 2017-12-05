@@ -9,25 +9,35 @@ Cours::Cours(string nomC, string NomEns)
 {
     nomDeCour = nomC;
     nomEnseignant = NomEns;
+    nbPlace = 0;
 
 }
 
-string Cours:: getNomCours(){
+string Cours::getNomCours(){
     return nomDeCour;
 }
 
-string Cours:: getNomEnseignant(){
+string Cours::getNomEnseignant(){
     return nomEnseignant;
 }
 
-string Cours:: getDetailsCour(){
+string Cours::getDetailsCour(){
     return detailsDucours;
 }
 
-int Cours:: getNbPaceMax(){
+int Cours::getNbPlaceMax(){
     return nbPlaceMax;
 }
 /*
+QList<Personne*> Cours::getPersonList() {
+    return personlist;
+}
+
+void Cours::ajouterEtudiant(Personne *p) {
+    nbPlace++;
+    personlist.append(p);
+}
+
 
 void Cours:: ajoutListPrincial(Personne p){
     listePrincipal.push_back(p);

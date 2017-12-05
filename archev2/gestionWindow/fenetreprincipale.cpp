@@ -7,15 +7,17 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     setWindowTitle("FenPrin");
 
 
-    layout = new QGridLayout();
-    layout->setVerticalSpacing(0);
-
     stack = new QStackedWidget(this);
+    qtool = new QToolBar();
+
+
 
 
     accueil = new Accueil(this);
     listeCours = new ListeCours(this);
     co = new Connexion();
+    pc = new ProposerCours(this);
+
 
      logout = new QPushButton("Log out",this);
      logout->setMaximumWidth(80);
@@ -28,6 +30,11 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
      connexion->setMaximumHeight(30);
      connect(connexion, SIGNAL (clicked()), this, SLOT (connecter()));
 
+    qtool->addWidget(connexion);
+    qtool->addWidget(logout);
+
+    logout->setEnabled(false);
+
 
     //fen3 = new Connexion();
     /*fen4 = new FenetreSecondaire4(this);*/
@@ -35,17 +42,17 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
 
     stack->addWidget(accueil);
     stack->addWidget(listeCours);
-
-    layout->addWidget(connexion,0,0);
-    layout->addWidget(logout,1,0);
-
-    setLayout(layout);
+    stack ->addWidget(pc);
 
     this->setCentralWidget(stack);
-    stack->setCurrentIndex(0); // on affiche la première fenêtre à l'ouverture du programme
+    this->addToolBar(qtool);
+    //stack->setCurrentIndex(0); // on affiche la première fenêtre à l'ouverture du programme
 
     connect(accueil, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
     connect(listeCours, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
+    connect(pc, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
+
+    connect(co, SIGNAL(askPersonCo(std::string)), this, SLOT(slotPersonCo(std::string)));
 }
 
 
@@ -56,15 +63,22 @@ FenetrePrincipale::~FenetrePrincipale()
 
 void FenetrePrincipale::connecter()
  {
-    co->exec();
-    if(co->getLogingOk()){
-        accueil->setEstCo(true);
+    if(!accueil->getEstCo()){
+        co->exec();
+        if(co->getLogingOk()){
+            accueil->setEstCo(true);
+            connexion->setEnabled(false);
+            logout->setEnabled(true);
+        }
     }
 }
 
 void FenetrePrincipale::deconnecter()
  {
      accueil->setEstCo(false);
+     this->slotDisplayFen(0);
+     connexion->setEnabled(true);
+     logout->setEnabled(false);
 
 }
 
@@ -75,10 +89,20 @@ void FenetrePrincipale::slotDisplayFen(int fenIndex)
     stack->setCurrentIndex(fenIndex);
 }
 
+void FenetrePrincipale::slotPersonCo(std::string s) {
+    listeCours->setPersonCo(s);
+
+
+}
+
 bool FenetrePrincipale::getCo() {
     return co;
 }
 
 void FenetrePrincipale::ajouterCours(Cours *c) {
     listeCours->ajouterCours(c);
+}
+
+void FenetrePrincipale::ajouterCoursListe(Cours *c) {
+    listeCours->ajouterCoursListe(c);
 }

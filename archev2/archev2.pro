@@ -12,7 +12,9 @@ SOURCES += \
     gestionWindow/fenetreprincipale.cpp \
     personne/etudiant.cpp \
     personne/enseignant.cpp \
-    gestionCours/listecourenattente.cpp
+    gestionCours/listecourenattente.cpp \
+    personne/personne.cpp \
+    gestionCours/proposercours.cpp
 
 HEADERS += \
     accueil.h \
@@ -23,4 +25,6 @@ HEADERS += \
     gestionWindow/fenetreprincipale.h \
     personne/etudiant.h \
     personne/enseignant.h \
-    gestionCours/listecourenattente.h
+    gestionCours/listecourenattente.h \
+    personne/personne.h \
+    gestionCours/proposercours.h

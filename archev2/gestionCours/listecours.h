@@ -7,7 +7,16 @@
 #include <list>
 #include <vector>
 #include "cours.h"
+#include "../personne/personne.h"
 #include <QTableView>
+#include <QTableWidget>
+#include <iostream>
+#include <QStringList>
+#include <QStandardItemModel>
+#include <QGraphicsScene>
+#include <QSignalMapper>
+#include <QTableWidgetItem>
+
 
 
 using namespace std;
@@ -22,10 +31,15 @@ public:
     ~ListeCours();
     void ajouterCours(Cours *c);
     bool MetsDansTonQ(int i);
-
+    void ajouterCoursListe(Cours *c);
+    QList<Personne*> getPersonList();
+    void setPersonCo(std::string i);
 
 private slots:
      void handleButton();
+
+public slots:
+     void inscription(QString s);
 
 signals:
     void askDisplayFen(int fenInd);
@@ -36,7 +50,11 @@ private:
      QLabel *label, *label2;
      QGridLayout *gridLayout;
      QTableView *vueliste;
-
+     QTableWidget *listevue;
+     QList<Cours*> coursList;
+     QList<Personne*> personlist;
+     QList<QPushButton*> buttons;
+     int personCo;
 
      // Dev Clas & Attributs
 

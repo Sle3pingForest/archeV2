@@ -19,6 +19,9 @@ class Connexion : public QDialog
         bool getLogingOk();
         ~Connexion();
 
+    signals:
+     void askPersonCo(std::string s);
+
 
     private slots:
         void handleButton();

@@ -52,7 +52,7 @@ void Connexion::handleButton()
     mdps = mdp->text().toStdString();
     if(ca->checkUser(ids,mdps)){
         logingOk = true;
-
+        emit askPersonCo( identification->text().toStdString() );
     }
     else{
         logingOk = false;

@@ -1,7 +1,4 @@
 #include "listecours.h"
-#include <iostream>
-#include <QStringList>
-#include <QStandardItemModel>
 ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 {
     // QT
@@ -15,41 +12,92 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
 
     setLayout(gridLayout);
-
+    personCo = 0;
 
     //DEV
 
-    /* (std::vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
-        std::cout << ' ' << *it;
-      std::cout << '\n';*/
 
+    int i =0;
 
-    QStringList entetes;
-    entetes << "Nom du cours" << "Enseignant" << "Inscription";
-    int i =0,j=0;
-   // vueliste->setHorizontalHeaderLabels(entetes);*
-   int column = listeCours.size();
+    this->ajouterCoursListe( new Cours("Toucan" , "teemo") );
+    this->ajouterCoursListe( new Cours("CPOA" , "yasuo"));
+    this->ajouterCoursListe( new Cours("ALGO" , "Master yi"));
+
+    personlist.append(new Personne("sleeping", "forest",1));
+    personlist.append(new Personne("a", "z",1));
+
+    int column = coursList.size();
+
     QStandardItemModel *model = new QStandardItemModel(3, column,this);
-    model->setHorizontalHeaderItem(0, new QStandardItem("Nom cours"));
-    model->setHorizontalHeaderItem(1, new QStandardItem(QString("Enseignant")));
-    model->setHorizontalHeaderItem(2, new QStandardItem(QString("Inscription")));
+    model->setHorizontalHeaderItem(0 , new QStandardItem("Nom cours"));
+    model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
+    model->setHorizontalHeaderItem(2 , new QStandardItem("Inscription"));
 
-      for(std::vector<Cours*>::iterator it = listeCours.begin(); it != listeCours.end(); it++, i++)    {
+    vueliste = new QTableView(this);
 
-                //QString q = new QString((*it)->getNomCours());
-                model->setItem(i,0,new QStandardItem( QString( QString::fromStdString((*it)->getNomCours() ) ) ) );
-                model->setItem(i,1,new QStandardItem( QString( QString::fromStdString((*it)->getNomEnseignant() ) ) ) );
-                model->setItem(i,2,new QStandardItem( QString( QString::fromStdString((*it)->getNomCours() ) ) ) );
-              std::cout<< *it << endl;  // prints d.
-                std::cout<< (*it)->getNomCours() ;
-              label->setText( QString::fromStdString((*it)->getNomCours() ) );
+    for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+
+        model->setItem(i , 0 , new QStandardItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
+        model->setItem(i , 1 , new QStandardItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
+
+    }
+
+
+
+
+    // -------------------------
+
+   /* listevue = new QTableWidget(this);
+
+    listevue->setHorizontalHeaderItem(0, new QTableWidgetItem("Nom cours"));
+    listevue->setHorizontalHeaderItem(1, new QTableWidgetItem(QString("Enseignant")));
+    listevue->setHorizontalHeaderItem(2, new QTableWidgetItem(QString("Inscription")));
+
+
+    QSignalMapper *mapper = new QSignalMapper();
+
+      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+
+           QPushButton *qb = new QPushButton("inscription") ;
+
+           connect(qb, SIGNAL(clicked() ), mapper , SLOT(map() ));
+           mapper->setMapping(qb, QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+           listevue->setItem(i,0,new QTableWidgetItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
+           listevue->setItem(i,1,new QTableWidgetItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
+           listevue->setCellWidget(i,2, qb);
       }
 
+      connect(mapper, SIGNAL(mapped(QString)), this, SLOT(inscription(QString)));*/
 
-     /* vueliste = new QTableView(this);
-      vueliste->setModel(model);
 
-      gridLayout->addWidget(vueliste,100,20);*/
+
+     vueliste = new QTableView(this);
+     vueliste->setModel(model);
+     i = 0;
+
+     QSignalMapper *mapper = new QSignalMapper(this);
+     connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
+
+        buttons.clear();
+
+      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++)    {
+
+
+        buttons.append( new QPushButton("inscription"));
+        vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
+        mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+        connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
+
+
+        i++;
+
+    }
+
+      gridLayout->addWidget(vueliste,100,20);
+
+
 
 }
 
@@ -66,6 +114,10 @@ void ListeCours::ajouterCours(Cours *c) {
     listeCours.push_back(c);
 }
 
+void ListeCours::ajouterCoursListe(Cours *c) {
+    coursList.append(c);
+}
+
 
 string ListeCours::getNomDeCours(int i){
 
@@ -80,10 +132,47 @@ string ListeCours::getNomDeEns(int i){
         std::advance(it, i);
     }
 */
+    i++;
     return "ENS" ;
 }
 
 
 Cours* ListeCours::getCours(int i){
     return listeCours[i];
+}
+
+
+void ListeCours::inscription(QString s){
+    bool trouve =false;
+
+
+    QList<Cours*>::iterator it = coursList.begin();
+    while(it != coursList.end() && !trouve) {
+        if ( (*it)->getNomCours() == s.toStdString()) {
+             personlist.at(personCo)->ajouterCours( (*it) );
+             trouve = true;
+
+             std::cout<< "AJOUT DU COURS "+s.toStdString()  << endl;
+
+        }
+        it++;
+    }
+}
+
+void ListeCours::setPersonCo(std::string i) {
+    int a = 0;
+    bool trouve =false;
+    QList<Personne*>::iterator it = personlist.begin();
+    while(it != personlist.end() && !trouve)    {
+        if ( (*it)->getNom() == i) {
+            personCo = a;
+            trouve = true;
+        }
+        it++,
+        a++;
+    }
+}
+
+QList<Personne*> ListeCours::getPersonList() {
+    return personlist;
 }

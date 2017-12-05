@@ -10,9 +10,9 @@ int main(int argc, char *argv[])
 
    FenetrePrincipale fp;
 
-   fp.ajouterCours(new Cours("Toucan", "teemo"));
-   fp.ajouterCours(new Cours("CPOA", "yasuo"));
-   fp.ajouterCours(new Cours("ALGO", "Master yi"));
+  /*fp.ajouterCoursListe( new Cours("Toucan", "teemo") );
+   fp.ajouterCoursListe(new Cours("CPOA", "yasuo"));
+   fp.ajouterCoursListe(new Cours("ALGO", "Master yi"));*/
 
     fp.show();
 

@@ -5,11 +5,12 @@
 #include <QMainWindow>
 #include <QtGui>
 #include <QStackedWidget>
-#include <QGridLayout>
-
+#include <QToolBar>
+#include <QLabel>
 #include "accueil.h"
 #include "./index/connexion.h"
 #include "./gestionCours/listecours.h"
+#include "./gestionCours/proposercours.h"
 
 
 class FenetrePrincipale : public QMainWindow
@@ -22,11 +23,16 @@ class FenetrePrincipale : public QMainWindow
         bool getCo();
         void setCo(bool v);
         void ajouterCours(Cours *c);
+        void ajouterCoursListe(Cours *c);
 
     public slots:
         void slotDisplayFen(int fenIndex);
+        void slotPersonCo(std::string s);
         void connecter();
         void deconnecter();
+    signals:
+        void askDisplayFen(int fenInd);
+        void askPersonCo(std::string s);
 
 
 
@@ -35,11 +41,12 @@ class FenetrePrincipale : public QMainWindow
         //QT
         QStackedWidget *stack;
         QPushButton *connexion, *logout;
-        QGridLayout *layout;
+        QToolBar *qtool;
 
         Accueil *accueil;
         ListeCours *listeCours;
         Connexion *co;
+        ProposerCours *pc;
         bool estCo =false;
 };
 

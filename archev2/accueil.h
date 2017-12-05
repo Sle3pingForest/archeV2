@@ -2,7 +2,6 @@
 #define ACCUEIL_H
 
 #include <QtGui>
-
 #include <QtNetwork>
 #include <QNetworkReply>
 #include <QNetworkRequest>
@@ -23,12 +22,15 @@ class Accueil : public QWidget
         Q_OBJECT
 public:
     Accueil(QWidget *parent = 0);
-    bool setEstCo(bool f);
+    void setEstCo(bool f);
+    bool getEstCo();
+
     ~Accueil();
 
 
 private slots:
     void on_listeCours_clicked();
+    void on_proposer_clicked();
 
 signals:
     void askDisplayFen(int fenInd);
@@ -43,7 +45,7 @@ private:
     QGridLayout *gridLayout;
     QLabel *label, *label2, *labelimgAccueil;
     QLineEdit *urlEdit;
-    QPushButton *listeCours;
+    QPushButton *listeCours , *proposer;
     QProgressBar *progression;
 
 
