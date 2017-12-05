@@ -11,6 +11,7 @@
 #include "./index/connexion.h"
 #include "./gestionCours/listecours.h"
 #include "./gestionCours/proposercours.h"
+#include "./gestionCours/listecourenattente.h"
 
 
 class FenetrePrincipale : public QMainWindow
@@ -47,6 +48,7 @@ class FenetrePrincipale : public QMainWindow
         ListeCours *listeCours;
         Connexion *co;
         ProposerCours *pc;
+        ListeCourEnAttente *listeAttente;
         bool estCo =false;
 };
 

@@ -17,6 +17,7 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     listeCours = new ListeCours(this);
     co = new Connexion();
     pc = new ProposerCours(this);
+    listeAttente = new ListeCourEnAttente(this);
 
 
      logout = new QPushButton("Log out",this);
@@ -43,6 +44,7 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     stack->addWidget(accueil);
     stack->addWidget(listeCours);
     stack ->addWidget(pc);
+    stack->addWidget(listeAttente);
 
     this->setCentralWidget(stack);
     this->addToolBar(qtool);
@@ -85,7 +87,7 @@ void FenetrePrincipale::deconnecter()
 
 void FenetrePrincipale::slotDisplayFen(int fenIndex)
 {
-    if ((fenIndex < 0) || (fenIndex > 3)) {return;}
+    if ((fenIndex < 0) || (fenIndex > 4)) {return;}
     stack->setCurrentIndex(fenIndex);
 }
 

@@ -1,19 +1,28 @@
 #ifndef LISTECOURENATTENTE_H
 #define LISTECOURENATTENTE_H
 
+#include <QtGui>
 #include "string"
 #include "cours.h"
 #include "vector"
+#include <iostream>
+#include <QWidget>
 
-class listeCourEnAttente
+
+class ListeCourEnAttente: public QWidget
 {
-public:
-    listeCourEnAttente();
-    void proposerCours(std::string titre, std::string nom);
-    void ajouterCours(Cours c);
+    Q_OBJECT
+    public:
+        ListeCourEnAttente(QWidget *parent = 0);
+        void proposerCours(std::string titre, std::string nom);
+        void ajouterCours(Cours c);
+        ~ListeCourEnAttente();
 
-private:
-    std::vector<Cours> listCoursAttente;
+    signals:
+        void askDisplayFen(int fenInd);
+
+    private:
+        std::vector<Cours> listCoursAttente;
 };
 
 #endif // LISTECOURENATTENTE_H

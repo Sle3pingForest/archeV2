@@ -19,14 +19,19 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     label->setAlignment(Qt::AlignHCenter);
     gridLayout->addWidget(label,0,0,0,4);
 
+    attente = new QPushButton("Cours En Attente",this);
+    attente->setMaximumWidth(150);
+    attente->setMaximumHeight(30);
+    gridLayout->addWidget(attente,1,5);
+
 
     listeCours = new QPushButton("Liste cours",this);
-    listeCours->setMaximumWidth(100);
+    listeCours->setMaximumWidth(150);
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
 
     proposer = new QPushButton("Proposer cours",this);
-    proposer->setMaximumWidth(100);
+    proposer->setMaximumWidth(150);
     proposer->setMaximumHeight(30);
     gridLayout->addWidget(proposer,3,5);
 
@@ -36,6 +41,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
+    connect(attente, SIGNAL (clicked()), this, SLOT (on_Atttente_clicked()));
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
     connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
 
@@ -50,6 +56,12 @@ Accueil::~Accueil() {
 
 void Accueil::on_proposer_clicked() {
         emit askDisplayFen(2);
+
+}
+
+
+void Accueil::on_Atttente_clicked() {
+        emit askDisplayFen(3);
 
 }
 

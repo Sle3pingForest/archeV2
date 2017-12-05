@@ -1,14 +1,19 @@
 #include "listecourenattente.h"
 
-listeCourEnAttente::listeCourEnAttente()
+ListeCourEnAttente::ListeCourEnAttente(QWidget *parent) : QWidget(parent)
 {
 }
 
-void listeCourEnAttente:: proposerCours(string titre, string nom){
+void ListeCourEnAttente:: proposerCours(string titre, string nom){
     Cours *cour = new Cours(titre, nom);
     ajouterCours(*cour);
 }
 
-void listeCourEnAttente:: ajouterCours(Cours c){
+void ListeCourEnAttente:: ajouterCours(Cours c){
     listCoursAttente.push_back(c);
+    cout<<"hello nam "<<endl;
+}
+
+ListeCourEnAttente:: ~ListeCourEnAttente(){
+
 }
