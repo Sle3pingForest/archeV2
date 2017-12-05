@@ -145,15 +145,20 @@ Cours* ListeCours::getCours(int i){
 void ListeCours::inscription(QString s){
     bool trouve =false;
 
-
     QList<Cours*>::iterator it = coursList.begin();
     while(it != coursList.end() && !trouve) {
-        if ( (*it)->getNomCours() == s.toStdString()) {
+        if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
              personlist.at(personCo)->ajouterCours( (*it) );
              trouve = true;
-
              std::cout<< "AJOUT DU COURS "+s.toStdString()  << endl;
 
+             QMessageBox::information(this, tr("Inscription"),
+                                               "Vous vous etes inscrits au cours : "+QString( s ) ,
+                                             QMessageBox::Ok);
+        } else if ((*it)->getNomCours() == s.toStdString() && personlist.at(personCo)->getListeCours().contains(*it)) {
+            QMessageBox::warning(this, tr("inscription"),
+                                              "Vous etes deja inscrits au cours : "+QString( s ) ,
+                                            QMessageBox::Ok);
         }
         it++;
     }

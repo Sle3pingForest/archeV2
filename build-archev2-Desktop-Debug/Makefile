@@ -1724,6 +1724,18 @@ moc_proposercours.cpp: /usr/include/qt5/QtGui/QtGui \
 		/usr/include/qt5/QtWidgets/QTextEdit \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
 		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/QGridLayout \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
+		../archev2/gestionCours/cours.h \
 		../archev2/gestionCours/proposercours.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/gestionCours/proposercours.h -o moc_proposercours.cpp
 
@@ -3979,7 +3991,19 @@ proposercours.o: ../archev2/gestionCours/proposercours.cpp ../archev2/gestionCou
 		/usr/include/qt5/QtWidgets/qsizepolicy.h \
 		/usr/include/qt5/QtWidgets/QTextEdit \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/QGridLayout \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
+		../archev2/gestionCours/cours.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o proposercours.o ../archev2/gestionCours/proposercours.cpp
 
 moc_accueil.o: moc_accueil.cpp 

@@ -12,6 +12,7 @@
 #include <QTableWidget>
 #include <iostream>
 #include <QStringList>
+#include <QMessageBox>
 #include <QStandardItemModel>
 #include <QGraphicsScene>
 #include <QSignalMapper>

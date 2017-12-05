@@ -32,10 +32,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
 
 
 
-
-
-
-
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
     connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
 
@@ -54,14 +50,15 @@ void Accueil::on_proposer_clicked() {
 }
 
 void Accueil::on_listeCours_clicked() {
-    if(estCo){
+     emit askDisplayFen(1);
+    /*if(estCo){
         emit askDisplayFen(1);
     }
     else{
         QMessageBox::warning(this, tr("Exces error"),
                                         tr("Identifiez-vous!!! "),
                                         QMessageBox::Ok);
-    }
+    }*/
 }
 
 void Accueil:: setEstCo(bool f){
