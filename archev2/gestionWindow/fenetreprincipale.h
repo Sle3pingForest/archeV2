@@ -10,6 +10,7 @@
 #include "accueil.h"
 #include "./index/connexion.h"
 #include "./gestionCours/listecours.h"
+#include "./gestionCours/proposercours.h"
 
 
 class FenetrePrincipale : public QMainWindow
@@ -45,6 +46,7 @@ class FenetrePrincipale : public QMainWindow
         Accueil *accueil;
         ListeCours *listeCours;
         Connexion *co;
+        ProposerCours *pc;
         bool estCo =false;
 };
 

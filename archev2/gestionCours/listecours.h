@@ -10,6 +10,13 @@
 #include "../personne/personne.h"
 #include <QTableView>
 #include <QTableWidget>
+#include <iostream>
+#include <QStringList>
+#include <QStandardItemModel>
+#include <QGraphicsScene>
+#include <QSignalMapper>
+#include <QTableWidgetItem>
+
 
 
 using namespace std;

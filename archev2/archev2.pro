@@ -13,7 +13,8 @@ SOURCES += \
     personne/etudiant.cpp \
     personne/enseignant.cpp \
     gestionCours/listecourenattente.cpp \
-    personne/personne.cpp
+    personne/personne.cpp \
+    gestionCours/proposercours.cpp
 
 HEADERS += \
     accueil.h \
@@ -25,4 +26,5 @@ HEADERS += \
     personne/etudiant.h \
     personne/enseignant.h \
     gestionCours/listecourenattente.h \
-    personne/personne.h
+    personne/personne.h \
+    gestionCours/proposercours.h

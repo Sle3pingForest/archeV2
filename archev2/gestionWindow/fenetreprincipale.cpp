@@ -16,6 +16,7 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     accueil = new Accueil(this);
     listeCours = new ListeCours(this);
     co = new Connexion();
+    pc = new ProposerCours(this);
 
 
      logout = new QPushButton("Log out",this);
@@ -41,6 +42,7 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
 
     stack->addWidget(accueil);
     stack->addWidget(listeCours);
+    stack ->addWidget(pc);
 
     this->setCentralWidget(stack);
     this->addToolBar(qtool);
@@ -48,6 +50,7 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
 
     connect(accueil, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
     connect(listeCours, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
+    connect(pc, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
 
     connect(co, SIGNAL(askPersonCo(std::string)), this, SLOT(slotPersonCo(std::string)));
 }

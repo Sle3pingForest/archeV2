@@ -1,11 +1,4 @@
 #include "listecours.h"
-#include <iostream>
-#include <QStringList>
-#include <QStandardItemModel>
-#include <QGraphicsScene>
-#include <QSignalMapper>
-#include <QTableWidgetItem>
-
 ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 {
     // QT

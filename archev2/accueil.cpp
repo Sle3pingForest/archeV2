@@ -49,10 +49,8 @@ Accueil::~Accueil() {
 }
 
 void Accueil::on_proposer_clicked() {
+        emit askDisplayFen(2);
 
-        QMessageBox::warning(this, tr("Exces error"),
-                                        tr("Fonctionnalite en cour de developpement "),
-                                       QMessageBox::Ok);
 }
 
 void Accueil::on_listeCours_clicked() {
