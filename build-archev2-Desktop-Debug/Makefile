@@ -1002,6 +1002,9 @@ moc_listecours.cpp: /usr/include/qt5/QtWidgets/QLabel \
 		/usr/include/qt5/QtWidgets/QTableWidget \
 		/usr/include/qt5/QtWidgets/qtablewidget.h \
 		/usr/include/qt5/QtCore/QStringList \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
 		/usr/include/qt5/QtGui/QStandardItemModel \
 		/usr/include/qt5/QtGui/qstandarditemmodel.h \
 		/usr/include/qt5/QtWidgets/QGraphicsScene \
@@ -3187,6 +3190,9 @@ listecours.o: ../archev2/gestionCours/listecours.cpp ../archev2/gestionCours/lis
 		/usr/include/qt5/QtWidgets/QTableWidget \
 		/usr/include/qt5/QtWidgets/qtablewidget.h \
 		/usr/include/qt5/QtCore/QStringList \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
 		/usr/include/qt5/QtGui/QStandardItemModel \
 		/usr/include/qt5/QtGui/qstandarditemmodel.h \
 		/usr/include/qt5/QtWidgets/QGraphicsScene \
@@ -3751,6 +3757,9 @@ etudiant.o: ../archev2/personne/etudiant.cpp ../archev2/personne/etudiant.h \
 		/usr/include/qt5/QtWidgets/QTableWidget \
 		/usr/include/qt5/QtWidgets/qtablewidget.h \
 		/usr/include/qt5/QtCore/QStringList \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
 		/usr/include/qt5/QtGui/QStandardItemModel \
 		/usr/include/qt5/QtGui/qstandarditemmodel.h \
 		/usr/include/qt5/QtWidgets/QGraphicsScene \
@@ -3906,6 +3915,9 @@ enseignant.o: ../archev2/personne/enseignant.cpp ../archev2/personne/enseignant.
 		/usr/include/qt5/QtWidgets/QTableWidget \
 		/usr/include/qt5/QtWidgets/qtablewidget.h \
 		/usr/include/qt5/QtCore/QStringList \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
 		/usr/include/qt5/QtGui/QStandardItemModel \
 		/usr/include/qt5/QtGui/qstandarditemmodel.h \
 		/usr/include/qt5/QtWidgets/QGraphicsScene \
