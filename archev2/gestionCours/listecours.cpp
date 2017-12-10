@@ -118,6 +118,14 @@ void ListeCours::ajouterCoursListe(Cours *c) {
     coursList.append(c);
 }
 
+void ListeCours::supprimerCours(Cours *c){
+    listeCours.pop_back(c);
+}
+
+void ListeCours::supprimerCoursListe(Cours *c){
+    int i = coursList.lastIndexOf(c);
+    coursList.takeAt(i);
+}
 
 string ListeCours::getNomDeCours(int i){
 
@@ -161,6 +169,27 @@ void ListeCours::inscription(QString s){
                                             QMessageBox::Ok);
         }
         it++;
+    }
+}
+
+void ListeCours::desinscription(QString s){
+    bool trouve =false;
+
+    QList<Cours*>::iterator it = coursList.begin();
+    while(it != coursList.end() && !trouve) {
+        if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
+             QMessageBox::warning(this, tr("Desinscription"),
+                                               "Vous vous n'etes pas inscrits au cours : "+QString( s ) ,
+                                             QMessageBox::Ok);
+        } else if ((*it)->getNomCours() == s.toStdString() && personlist.at(personCo)->getListeCours().contains(*it)) {
+            trouve = true;
+            personlist.at(personCo)->supprimerCours( (*it) );
+             std::cout<< "SUPRESSION DU COURS "+s.toStdString()  << endl;
+            QMessageBox::information(this, tr("desinscription"),
+                                              "Vous etes desinscrits au cours : "+QString( s ) ,
+                                            QMessageBox::Ok);
+        }
+        it--;
     }
 }
 
