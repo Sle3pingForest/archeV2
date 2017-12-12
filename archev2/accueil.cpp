@@ -38,13 +38,10 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     proposer->setMaximumWidth(150);
     proposer->setMaximumHeight(30);
     gridLayout->addWidget(proposer,3,5);
-<<<<<<< HEAD
-=======
 
 
 
     connect(attente, SIGNAL (clicked()), this, SLOT (on_Atttente_clicked()));
->>>>>>> 021f7dd0042eef4ffab77509c74f6b81f3d7416f
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
 
     connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
