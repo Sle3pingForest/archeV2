@@ -35,12 +35,15 @@ public:
     void ajouterCoursListe(Cours *c);
     QList<Personne*> getPersonList();
     void setPersonCo(std::string i);
+    void supprimerCoursListe(Cours *c);
+    void supprimerCours(Cours *c);
 
 private slots:
      void handleButton();
 
 public slots:
      void inscription(QString s);
+     void desinscription(QString s);
 
 signals:
     void askDisplayFen(int fenInd);
@@ -54,7 +57,7 @@ private:
      QTableWidget *listevue;
      QList<Cours*> coursList;
      QList<Personne*> personlist;
-     QList<QPushButton*> buttons;
+     QList<QPushButton*> buttons, desinscription_boutons;
      int personCo;
 
      // Dev Clas & Attributs

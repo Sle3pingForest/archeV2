@@ -32,6 +32,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     model->setHorizontalHeaderItem(0 , new QStandardItem("Nom cours"));
     model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
     model->setHorizontalHeaderItem(2 , new QStandardItem("Inscription"));
+    model->setHorizontalHeaderItem(3 , new QStandardItem("Desinscription"));
 
     vueliste = new QTableView(this);
 
@@ -77,19 +78,32 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
      i = 0;
 
      QSignalMapper *mapper = new QSignalMapper(this);
+
+
+     QSignalMapper *mapper2 = new QSignalMapper(this);
      connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
 
+
+     connect(mapper2, SIGNAL(mapped(QString)) , this , SLOT(desinscription(QString)));
+
         buttons.clear();
+        desinscription_boutons.clear();
 
       for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++)    {
 
 
-        buttons.append( new QPushButton("inscription"));
+        buttons.append( new QPushButton("Inscription"));
+        desinscription_boutons.append(new QPushButton("Desinscription"));
+
         vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
         mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
 
-        connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
 
+        vueliste->setIndexWidget(model->index(i,3), desinscription_boutons.at(i));
+        mapper2->setMapping(desinscription_boutons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+        connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
+        connect(desinscription_boutons.at(i) , SIGNAL(clicked() ) , mapper2 , SLOT(map() ));
 
         i++;
 
@@ -117,15 +131,12 @@ void ListeCours::ajouterCours(Cours *c) {
 void ListeCours::ajouterCoursListe(Cours *c) {
     coursList.append(c);
 }
-/*
-void ListeCours::supprimerCours(Cours *c){
-    listeCours.pop_back(c);
-}
+
 
 void ListeCours::supprimerCoursListe(Cours *c){
     int i = coursList.lastIndexOf(c);
     coursList.takeAt(i);
-}*/
+}
 
 string ListeCours::getNomDeCours(int i){
 
@@ -176,8 +187,9 @@ void ListeCours::inscription(QString s){
 /*
 void ListeCours::desinscription(QString s){
     bool trouve =false;
+     std::cout<< "azerty "<< endl;
 
-    QList<Cours*>::iterator it = coursList.begin();
+    QList<Cours*>::iterator it = coursList.begin();/*
     while(it != coursList.end() && !trouve) {
         if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
              QMessageBox::warning(this, tr("Desinscription"),
@@ -192,7 +204,7 @@ void ListeCours::desinscription(QString s){
                                             QMessageBox::Ok);
         }
         it--;
-    }
+    }*/
 }
 
 */
