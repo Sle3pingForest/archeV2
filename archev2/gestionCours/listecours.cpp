@@ -132,6 +132,7 @@ void ListeCours::desinscription(QString s){
                                               "Vous n'etes pas inscrits au cours : "+QString( s ) ,
                                             QMessageBox::Ok);
        }
+        i++;
         it++;
     }
 }
