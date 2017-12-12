@@ -35,6 +35,7 @@ public:
     void ajouterCoursListe(Cours *c);
     QList<Personne*> getPersonList();
     void setPersonCo(std::string i);
+    Personne* getPersonCo();
     void supprimerCoursListe(Cours *c);
     void supprimerCours(Cours *c);
 

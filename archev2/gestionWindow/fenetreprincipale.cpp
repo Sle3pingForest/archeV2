@@ -31,8 +31,14 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
      connexion->setMaximumHeight(30);
      connect(connexion, SIGNAL (clicked()), this, SLOT (connecter()));
 
+     acc = new QPushButton("Accueil",this);
+     acc->setMaximumWidth(80);
+     acc->setMaximumHeight(30);
+     connect(acc, SIGNAL (clicked()), this, SLOT ( accueilRedirect() ));
+
     qtool->addWidget(connexion);
     qtool->addWidget(logout);
+    qtool->addWidget(acc);
 
     logout->setEnabled(false);
 
@@ -71,8 +77,15 @@ void FenetrePrincipale::connecter()
             accueil->setEstCo(true);
             connexion->setEnabled(false);
             logout->setEnabled(true);
+            accueil->setPersonne(listeCours->getPersonCo());
+            accueil->rafraichirBouton();
         }
     }
+}
+
+void FenetrePrincipale::accueilRedirect() {
+    accueil->rafraichirBouton();
+    slotDisplayFen(0);
 }
 
 void FenetrePrincipale::deconnecter()
@@ -81,7 +94,8 @@ void FenetrePrincipale::deconnecter()
      this->slotDisplayFen(0);
      connexion->setEnabled(true);
      logout->setEnabled(false);
-
+     accueil->setPersonne(NULL);
+     accueil->rafraichirBouton();
 }
 
 
@@ -93,8 +107,6 @@ void FenetrePrincipale::slotDisplayFen(int fenIndex)
 
 void FenetrePrincipale::slotPersonCo(std::string s) {
     listeCours->setPersonCo(s);
-
-
 }
 
 bool FenetrePrincipale::getCo() {

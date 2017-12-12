@@ -25,6 +25,9 @@ public:
     Accueil(QWidget *parent = 0);
     void setEstCo(bool f);
     bool getEstCo();
+    void setPersonne(Personne *p);
+    Personne* getPersonne();
+    void rafraichirBouton();
 
     ~Accueil();
 
@@ -55,6 +58,7 @@ private:
     ListeCourEnAttente *listeCoursEnAttente;
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
     bool estCo = false;
+    Personne *perso;
 };
 
 #endif // ACCUEIL_H

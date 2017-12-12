@@ -714,8 +714,9 @@ moc_accueil.cpp: /usr/include/qt5/QtGui/QtGui \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
-		../archev2/gestionCours/listecourenattente.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/gestionCours/listecourenattente.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		../archev2/accueil.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/accueil.h -o moc_accueil.cpp
@@ -857,6 +858,9 @@ moc_connexion.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
+		../archev2/personne/personne.h \
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtCore/QList \
 		../archev2/index/connexion.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../archev2/index/connexion.h -o moc_connexion.cpp
 
@@ -1396,11 +1400,11 @@ moc_fenetreprincipale.cpp: /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
-		../archev2/gestionCours/listecourenattente.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/gestionCours/listecourenattente.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		../archev2/gestionCours/listecours.h \
-		../archev2/personne/personne.h \
 		/usr/include/qt5/QtWidgets/QTableView \
 		/usr/include/qt5/QtWidgets/qtableview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -2445,8 +2449,9 @@ main.o: ../archev2/main.cpp /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
-		../archev2/gestionCours/listecourenattente.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/gestionCours/listecourenattente.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		../archev2/gestionWindow/fenetreprincipale.h \
 		/usr/include/qt5/QtWidgets/QMainWindow \
@@ -2457,7 +2462,6 @@ main.o: ../archev2/main.cpp /usr/include/qt5/QtWidgets/QApplication \
 		/usr/include/qt5/QtWidgets/QToolBar \
 		/usr/include/qt5/QtWidgets/qtoolbar.h \
 		../archev2/gestionCours/listecours.h \
-		../archev2/personne/personne.h \
 		/usr/include/qt5/QtWidgets/QTableView \
 		/usr/include/qt5/QtWidgets/qtableview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -2855,8 +2859,9 @@ accueil.o: ../archev2/accueil.cpp ../archev2/accueil.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
-		../archev2/gestionCours/listecourenattente.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/gestionCours/listecourenattente.h \
 		/usr/include/qt5/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accueil.o ../archev2/accueil.cpp
 
@@ -2997,10 +3002,56 @@ connexion.o: ../archev2/index/connexion.cpp ../archev2/index/connexion.h \
 		/usr/include/qt5/QtWidgets/qdialog.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		../archev2/index/checkauthentifiacation.h
+		../archev2/index/checkauthentifiacation.h \
+		../archev2/personne/personne.h \
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtCore/QList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o connexion.o ../archev2/index/connexion.cpp
 
-checkauthentifiacation.o: ../archev2/index/checkauthentifiacation.cpp ../archev2/index/checkauthentifiacation.h
+checkauthentifiacation.o: ../archev2/index/checkauthentifiacation.cpp ../archev2/index/checkauthentifiacation.h \
+		../archev2/personne/personne.h \
+		../archev2/gestionCours/cours.h \
+		/usr/include/qt5/QtCore/QList \
+		/usr/include/qt5/QtCore/qlist.h \
+		/usr/include/qt5/QtCore/qalgorithms.h \
+		/usr/include/qt5/QtCore/qglobal.h \
+		/usr/include/qt5/QtCore/qconfig.h \
+		/usr/include/qt5/QtCore/qfeatures.h \
+		/usr/include/qt5/QtCore/qsystemdetection.h \
+		/usr/include/qt5/QtCore/qprocessordetection.h \
+		/usr/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/include/qt5/QtCore/qglobalstatic.h \
+		/usr/include/qt5/QtCore/qatomic.h \
+		/usr/include/qt5/QtCore/qbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/include/qt5/QtCore/qgenericatomic.h \
+		/usr/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/include/qt5/QtCore/qatomic_integrity.h \
+		/usr/include/qt5/QtCore/qoldbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_vxworks.h \
+		/usr/include/qt5/QtCore/qatomic_power.h \
+		/usr/include/qt5/QtCore/qatomic_alpha.h \
+		/usr/include/qt5/QtCore/qatomic_armv7.h \
+		/usr/include/qt5/QtCore/qatomic_armv6.h \
+		/usr/include/qt5/QtCore/qatomic_armv5.h \
+		/usr/include/qt5/QtCore/qatomic_bfin.h \
+		/usr/include/qt5/QtCore/qatomic_ia64.h \
+		/usr/include/qt5/QtCore/qatomic_mips.h \
+		/usr/include/qt5/QtCore/qatomic_s390.h \
+		/usr/include/qt5/QtCore/qatomic_sh4a.h \
+		/usr/include/qt5/QtCore/qatomic_sparc.h \
+		/usr/include/qt5/QtCore/qatomic_gcc.h \
+		/usr/include/qt5/QtCore/qatomic_x86.h \
+		/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/include/qt5/QtCore/qatomic_unix.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qrefcount.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o checkauthentifiacation.o ../archev2/index/checkauthentifiacation.cpp
 
 cours.o: ../archev2/gestionCours/cours.cpp ../archev2/gestionCours/cours.h \
@@ -3584,11 +3635,11 @@ fenetreprincipale.o: ../archev2/gestionWindow/fenetreprincipale.cpp ../archev2/g
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		../archev2/index/checkauthentifiacation.h \
-		../archev2/gestionCours/listecourenattente.h \
+		../archev2/personne/personne.h \
 		../archev2/gestionCours/cours.h \
+		../archev2/gestionCours/listecourenattente.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		../archev2/gestionCours/listecours.h \
-		../archev2/personne/personne.h \
 		/usr/include/qt5/QtWidgets/QTableView \
 		/usr/include/qt5/QtWidgets/qtableview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \

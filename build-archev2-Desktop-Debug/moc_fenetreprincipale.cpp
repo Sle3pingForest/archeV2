@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_FenetrePrincipale_t {
-    QByteArrayData data[12];
-    char stringdata[126];
+    QByteArrayData data[13];
+    char stringdata[142];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,12 +40,13 @@ QT_MOC_LITERAL(7, 66, 14),
 QT_MOC_LITERAL(8, 81, 8),
 QT_MOC_LITERAL(9, 90, 12),
 QT_MOC_LITERAL(10, 103, 9),
-QT_MOC_LITERAL(11, 113, 11)
+QT_MOC_LITERAL(11, 113, 11),
+QT_MOC_LITERAL(12, 125, 15)
     },
     "FenetrePrincipale\0askDisplayFen\0\0"
     "fenInd\0askPersonCo\0std::string\0s\0"
     "slotDisplayFen\0fenIndex\0slotPersonCo\0"
-    "connecter\0deconnecter\0"
+    "connecter\0deconnecter\0accueilRedirect\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,7 +56,7 @@ static const uint qt_meta_data_FenetrePrincipale[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -63,14 +64,15 @@ static const uint qt_meta_data_FenetrePrincipale[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   44,    2, 0x06,
-       4,    1,   47,    2, 0x06,
+       1,    1,   49,    2, 0x06,
+       4,    1,   52,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-       7,    1,   50,    2, 0x0a,
-       9,    1,   53,    2, 0x0a,
-      10,    0,   56,    2, 0x0a,
-      11,    0,   57,    2, 0x0a,
+       7,    1,   55,    2, 0x0a,
+       9,    1,   58,    2, 0x0a,
+      10,    0,   61,    2, 0x0a,
+      11,    0,   62,    2, 0x0a,
+      12,    0,   63,    2, 0x0a,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -79,6 +81,7 @@ static const uint qt_meta_data_FenetrePrincipale[] = {
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -96,6 +99,7 @@ void FenetrePrincipale::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 3: _t->slotPersonCo((*reinterpret_cast< std::string(*)>(_a[1]))); break;
         case 4: _t->connecter(); break;
         case 5: _t->deconnecter(); break;
+        case 6: _t->accueilRedirect(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -141,13 +145,13 @@ int FenetrePrincipale::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

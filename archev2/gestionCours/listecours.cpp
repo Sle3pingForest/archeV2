@@ -23,7 +23,9 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     this->ajouterCoursListe( new Cours("CPOA" , "yasuo"));
     this->ajouterCoursListe( new Cours("ALGO" , "Master yi"));
 
-    personlist.append(new Personne("sleeping", "forest",1));
+    personlist.append(new Personne("sleeping", "forest",3));
+    personlist.append(new Personne("allen", "fresh", 3));
+    personlist.append(new Personne("lea", "boire", 3));
     personlist.append(new Personne("a", "z",1));
 
     int column = coursList.size();
@@ -225,6 +227,10 @@ void ListeCours::setPersonCo(std::string i) {
         it++,
         a++;
     }
+}
+
+Personne* ListeCours::getPersonCo(){
+    return personlist.at(personCo);
 }
 
 QList<Personne*> ListeCours::getPersonList() {
