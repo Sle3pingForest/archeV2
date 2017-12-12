@@ -61,6 +61,9 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
     connect(pc, SIGNAL(askDisplayFen(int)), this, SLOT(slotDisplayFen(int)));
 
     connect(co, SIGNAL(askPersonCo(std::string)), this, SLOT(slotPersonCo(std::string)));
+
+    connect(listeAttente, SIGNAL(askCours(std::string, std::string)), this, SLOT(slotAddCours(std::string, std::string)));
+
 }
 
 
@@ -119,4 +122,8 @@ void FenetrePrincipale::ajouterCours(Cours *c) {
 
 void FenetrePrincipale::ajouterCoursListe(Cours *c) {
     listeCours->ajouterCoursListe(c);
+}
+
+void FenetrePrincipale::slotAddCours(string s, string ss) {
+    listeCours->ajouterCoursListe(new Cours(s,ss));
 }

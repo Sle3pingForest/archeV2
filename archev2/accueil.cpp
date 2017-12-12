@@ -30,7 +30,7 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
 
-
+    //listeAttente = new ListeCourEnAttente(this);
 
 
 
@@ -45,9 +45,11 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
 
     connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
+
+
     listeCours->setVisible(false);
     proposer->setVisible(false);
-
+    attente->setVisible(false);
 
     setLayout(gridLayout);
 
@@ -87,15 +89,17 @@ void Accueil:: setEstCo(bool f){
 void Accueil::rafraichirBouton() {
     if (estCo) {
         listeCours->setVisible(true);
-
-        std::cout<< "TEST " << getPersonne() << endl;
         if (getPersonne()->getDroit() == "enseignant" || getPersonne()->getDroit() == "admin") {
             proposer->setVisible(true);
+        }
+        if (getPersonne()->getDroit() == "admin") {
+            attente->setVisible(true);
         }
 
     } else {
         listeCours->setVisible(false);
         proposer->setVisible(false);
+        attente->setVisible(false);
     }
 }
 

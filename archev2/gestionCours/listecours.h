@@ -38,6 +38,7 @@ public:
     Personne* getPersonCo();
     void supprimerCoursListe(Cours *c);
     void supprimerCours(Cours *c);
+    void recreerModel();
 
 private slots:
      void handleButton();
@@ -53,12 +54,17 @@ private:
 
     //QT Class
      QLabel *label, *label2;
+     QStandardItemModel *model;
      QGridLayout *gridLayout;
      QTableView *vueliste;
      QTableWidget *listevue;
      QList<Cours*> coursList;
      QList<Personne*> personlist;
      QList<QPushButton*> buttons, desinscription_boutons, resources_boutons;
+     QSignalMapper *mapper;
+     QSignalMapper *mapper2 ;
+     QSignalMapper *mapper3;
+
      int personCo;
 
      // Dev Clas & Attributs

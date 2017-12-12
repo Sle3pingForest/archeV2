@@ -28,91 +28,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     personlist.append(new Personne("lea", "boire", 3));
     personlist.append(new Personne("a", "z",1));
 
-    int column = coursList.size();
-
-    QStandardItemModel *model = new QStandardItemModel(3, column,this);
-    model->setHorizontalHeaderItem(0 , new QStandardItem("Nom cours"));
-    model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
-    model->setHorizontalHeaderItem(2 , new QStandardItem("Inscription"));
-    model->setHorizontalHeaderItem(3 , new QStandardItem("Desinscription"));
-    model->setHorizontalHeaderItem(4 , new QStandardItem("Add Resource"));
-
-    vueliste = new QTableView(this);
-
-    for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
-
-        model->setItem(i , 0 , new QStandardItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
-        model->setItem(i , 1 , new QStandardItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
-
-    }
-
-
-
-
-    // -------------------------
-
-   /* listevue = new QTableWidget(this);
-
-    listevue->setHorizontalHeaderItem(0, new QTableWidgetItem("Nom cours"));
-    listevue->setHorizontalHeaderItem(1, new QTableWidgetItem(QString("Enseignant")));
-    listevue->setHorizontalHeaderItem(2, new QTableWidgetItem(QString("Inscription")));
-
-
-    QSignalMapper *mapper = new QSignalMapper();
-
-      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
-
-           QPushButton *qb = new QPushButton("inscription") ;
-
-           connect(qb, SIGNAL(clicked() ), mapper , SLOT(map() ));
-           mapper->setMapping(qb, QString( QString::fromStdString( (*it)->getNomCours() ) ) );
-
-           listevue->setItem(i,0,new QTableWidgetItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
-           listevue->setItem(i,1,new QTableWidgetItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
-           listevue->setCellWidget(i,2, qb);
-      }
-
-      connect(mapper, SIGNAL(mapped(QString)), this, SLOT(inscription(QString)));*/
-
-
-
-     vueliste = new QTableView(this);
-     vueliste->setModel(model);
-     i = 0;
-
-     QSignalMapper *mapper = new QSignalMapper(this);
-     QSignalMapper *mapper2 = new QSignalMapper(this);
-     QSignalMapper *mapper3 = new QSignalMapper(this);
-
-     connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
-     connect(mapper2, SIGNAL(mapped(QString)) , this , SLOT(desinscription(QString)));
-     //connect(mapper3, SIGNAL(mapped(QString)) , this , SLOT(addFile(QString)));
-
-        buttons.clear();
-        desinscription_boutons.clear();
-        //resources_boutons
-
-      for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++)    {
-
-
-        buttons.append( new QPushButton("Inscription"));
-        desinscription_boutons.append(new QPushButton("Desinscription"));
-        //resources_boutons (new QPushButton("Add Resource"));
-
-        vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
-        mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
-
-
-        vueliste->setIndexWidget(model->index(i,3), desinscription_boutons.at(i));
-        mapper2->setMapping(desinscription_boutons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
-
-        connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
-        connect(desinscription_boutons.at(i) , SIGNAL(clicked() ) , mapper2 , SLOT(map() ));
-        i++;
-
-    }
-
-      gridLayout->addWidget(vueliste,100,20);
+    recreerModel();
 
 
 
@@ -133,6 +49,11 @@ void ListeCours::ajouterCours(Cours *c) {
 
 void ListeCours::ajouterCoursListe(Cours *c) {
     coursList.append(c);
+
+    recreerModel();
+
+
+
 }
 
 
@@ -185,6 +106,7 @@ void ListeCours::inscription(QString s){
                                             QMessageBox::Ok);
             buttons.at(i)->setEnabled(false);
         }
+        i++;
         it++;
     }
 }
@@ -235,4 +157,70 @@ Personne* ListeCours::getPersonCo(){
 
 QList<Personne*> ListeCours::getPersonList() {
     return personlist;
+}
+
+
+void ListeCours::recreerModel() {
+
+    int i = 0;
+    int column = coursList.size();
+
+    model = new QStandardItemModel(3, column,this);
+    model->setHorizontalHeaderItem(0 , new QStandardItem("Nom cours"));
+    model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
+    model->setHorizontalHeaderItem(2 , new QStandardItem("Inscription"));
+    model->setHorizontalHeaderItem(3 , new QStandardItem("Desinscription"));
+    model->setHorizontalHeaderItem(4 , new QStandardItem("Add Resource"));
+
+    vueliste = new QTableView(this);
+
+    for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++, i++)    {
+
+        model->setItem(i , 0 , new QStandardItem( QString( QString::fromStdString( (*it)->getNomCours() ) ) ) );
+        model->setItem(i , 1 , new QStandardItem( QString( QString::fromStdString( (*it)->getNomEnseignant()  ) ) ) );
+
+    }
+
+
+    vueliste = new QTableView(this);
+    vueliste->setModel(model);
+    i = 0;
+
+    mapper = new QSignalMapper(this);
+    mapper2 = new QSignalMapper(this);
+    mapper3 = new QSignalMapper(this);
+
+    connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
+    connect(mapper2, SIGNAL(mapped(QString)) , this , SLOT(desinscription(QString)));
+    //connect(mapper3, SIGNAL(mapped(QString)) , this , SLOT(addFile(QString)));
+
+       buttons.clear();
+       desinscription_boutons.clear();
+       //resources_boutons
+
+     for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++)    {
+
+
+       buttons.append( new QPushButton("Inscription"));
+       desinscription_boutons.append(new QPushButton("Desinscription"));
+       //resources_boutons (new QPushButton("Add Resource"));
+
+       vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
+       mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+
+       vueliste->setIndexWidget(model->index(i,3), desinscription_boutons.at(i));
+       mapper2->setMapping(desinscription_boutons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
+
+       connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
+       connect(desinscription_boutons.at(i) , SIGNAL(clicked() ) , mapper2 , SLOT(map() ));
+       i++;
+
+   }
+
+     gridLayout->addWidget(vueliste,100,20);
+
+
+
+
 }

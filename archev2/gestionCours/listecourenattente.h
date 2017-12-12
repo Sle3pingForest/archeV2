@@ -7,6 +7,12 @@
 #include "vector"
 #include <iostream>
 #include <QWidget>
+#include <QTableView>
+#include <QTableWidget>
+#include <QPushButton>
+#include <QLabel>
+#include <QGridLayout>
+#include <QStandardItemModel>
 
 
 class ListeCourEnAttente: public QWidget
@@ -18,11 +24,26 @@ class ListeCourEnAttente: public QWidget
         void ajouterCours(Cours c);
         ~ListeCourEnAttente();
 
+
+public slots:
+     void validation(QString s);
+
+
+
     signals:
         void askDisplayFen(int fenInd);
+        void askCours(std::string s, std::string ss);
+
+
 
     private:
+        QGridLayout *gridLayout;
+        QStandardItemModel *model;
+        QLabel *label;
         std::vector<Cours> listCoursAttente;
+        QTableView *vueliste;
+        QTableWidget *listevue;
+        QList<QPushButton*> buttons;
 };
 
 #endif // LISTECOURENATTENTE_H
