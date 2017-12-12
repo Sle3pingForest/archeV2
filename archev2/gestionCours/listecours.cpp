@@ -78,6 +78,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
      QSignalMapper *mapper = new QSignalMapper(this);
      connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
+     connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(desinscription(QString)));
 
         buttons.clear();
 
@@ -85,6 +86,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
 
         buttons.append( new QPushButton("inscription"));
+
         vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
         mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
 
@@ -96,8 +98,6 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     }
 
       gridLayout->addWidget(vueliste,100,20);
-
-
 
 }
 
@@ -118,9 +118,10 @@ void ListeCours::ajouterCoursListe(Cours *c) {
     coursList.append(c);
 }
 
-void ListeCours::supprimerCours(Cours *c){
-    listeCours.pop_back(c);
-}
+/*void ListeCours::supprimerCours(Cours *c){
+
+    listeCours.erase(i);
+}*/
 
 void ListeCours::supprimerCoursListe(Cours *c){
     int i = coursList.lastIndexOf(c);

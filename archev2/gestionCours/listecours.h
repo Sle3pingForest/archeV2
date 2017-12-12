@@ -35,6 +35,9 @@ public:
     void ajouterCoursListe(Cours *c);
     QList<Personne*> getPersonList();
     void setPersonCo(std::string i);
+    void supprimerCoursListe(Cours *c);
+    void supprimerCours(Cours *c);
+    void desinscription(QString s);
 
 private slots:
      void handleButton();

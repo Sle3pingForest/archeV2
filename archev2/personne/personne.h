@@ -20,6 +20,7 @@ public:
     QList<Cours*> getListeCours();
     QList<std::string> getListeDroit();
     void ajouterCours(Cours *c);
+    void supprimerCours(Cours *c);
 
 
 
