@@ -181,6 +181,7 @@ void ListeCours::inscription(QString s){
             QMessageBox::warning(this, tr("inscription"),
                                               "Vous etes deja inscrits au cours : "+QString( s ) ,
                                             QMessageBox::Ok);
+            buttons.at(i)->setEnabled(false);
         }
         it++;
     }
@@ -206,9 +207,7 @@ void ListeCours::desinscription(QString s){
             QMessageBox::warning(this, tr("Desinscription"),
                                               "Vous n'etes pas inscrits au cours : "+QString( s ) ,
                                             QMessageBox::Ok);
-
-        }
-
+       }
         it++;
     }
 }

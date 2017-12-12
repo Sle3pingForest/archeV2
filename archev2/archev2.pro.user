@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 3.0.1, 2017-12-12T14:09:34. -->
-=======
-<!-- Written by QtCreator 3.0.1, 2017-12-12T14:42:08. -->
->>>>>>> d6583140146dda1b4d4512739f46ea1add8dc865
+<!-- Written by QtCreator 3.0.1, 2017-12-12T16:33:12. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -57,20 +53,12 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop</value>
-<<<<<<< HEAD
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{f5d48ed5-41c7-495f-bdd4-c69da3a6c303}</value>
-=======
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{e52fcc9f-1c24-41e8-9e9c-12322e052e04}</value>
->>>>>>> d6583140146dda1b4d4512739f46ea1add8dc865
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
-<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/profil/ly25u/Bureau/Projet L3/CPOA/build-archev2-Desktop-Debug</value>
-=======
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/opt/schmit178u/Espace-Etudiant/projetCPOA/build-archev2-Desktop-Debug</value>
->>>>>>> d6583140146dda1b4d4512739f46ea1add8dc865
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -129,11 +117,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/profil/ly25u/Bureau/Projet L3/CPOA/build-archev2-Desktop-Release</value>
-=======
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/opt/schmit178u/Espace-Etudiant/projetCPOA/build-archev2-Desktop-Release</value>
->>>>>>> d6583140146dda1b4d4512739f46ea1add8dc865
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -245,11 +229,7 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">archev2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/profil/ly25u/Bureau/Projet L3/CPOA/archev2/archev2.pro</value>
-=======
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/opt/schmit178u/Espace-Etudiant/projetCPOA/archeV2/archev2.pro</value>
->>>>>>> d6583140146dda1b4d4512739f46ea1add8dc865
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">archev2.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
@@ -271,11 +251,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.EnvironmentId</variable>
-<<<<<<< HEAD
   <value type="QByteArray">{3e0c64eb-dd42-4085-b213-95934f4fdf36}</value>
-=======
-  <value type="QByteArray">{06549bdf-5b44-40bb-89c6-fe012a6930ca}</value>
->>>>>>> d6583140146dda1b4d4512739f46ea1add8dc865
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
