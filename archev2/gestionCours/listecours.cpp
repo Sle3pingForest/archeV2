@@ -106,7 +106,6 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
         connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
         connect(desinscription_boutons.at(i) , SIGNAL(clicked() ) , mapper2 , SLOT(map() ));
-
         i++;
 
     }
@@ -165,7 +164,7 @@ Cours* ListeCours::getCours(int i){
 
 void ListeCours::inscription(QString s){
     bool trouve =false;
-
+    int i = 0;
     QList<Cours*>::iterator it = coursList.begin();
     while(it != coursList.end() && !trouve) {
         if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
@@ -176,6 +175,8 @@ void ListeCours::inscription(QString s){
              QMessageBox::information(this, tr("Inscription"),
                                                "Vous vous etes inscrits au cours : "+QString( s ) ,
                                              QMessageBox::Ok);
+             buttons.at(i)->setEnabled(false);
+             desinscription_boutons.at(i)->setEnabled(true);
         } else if ((*it)->getNomCours() == s.toStdString() && personlist.at(personCo)->getListeCours().contains(*it)) {
             QMessageBox::warning(this, tr("inscription"),
                                               "Vous etes deja inscrits au cours : "+QString( s ) ,
@@ -189,22 +190,25 @@ void ListeCours::inscription(QString s){
 
 void ListeCours::desinscription(QString s){
     bool trouve =false;
-     std::cout<< "azerty "<< endl;
-
+    int i = 0;
     QList<Cours*>::iterator it = coursList.begin();
     while(it != coursList.end() && !trouve) {
-        if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
-             QMessageBox::warning(this, tr("Desinscription"),
-                                               "Vous vous n'etes pas inscrits au cours : "+QString( s ) ,
-                                             QMessageBox::Ok);
-        } else if ((*it)->getNomCours() == s.toStdString() && personlist.at(personCo)->getListeCours().contains(*it)) {
-            trouve = true;
-            personlist.at(personCo)->supprimerCours( (*it) );
-             std::cout<< "SUPRESSION DU COURS "+s.toStdString()  << endl;
-            QMessageBox::information(this, tr("desinscription"),
-                                              "Vous etes desinscrits au cours : "+QString( s ) ,
+        if ((*it)->getNomCours() == s.toStdString() && personlist.at(personCo)->getListeCours().contains(*it)) {
+                    trouve = true;
+                    personlist.at(personCo)->supprimerCours( (*it) );
+                     std::cout<< "SUPRESSION DU COURS "+s.toStdString()  << endl;
+                    QMessageBox::information(this, tr("desinscription"),
+                                                      "Vous etes desinscrits au cours : "+QString( s ) ,
+                                                    QMessageBox::Ok);
+                    desinscription_boutons.at(i)->setEnabled(false);
+                    buttons.at(i)->setEnabled(true);
+         }else if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
+            QMessageBox::warning(this, tr("Desinscription"),
+                                              "Vous n'etes pas inscrits au cours : "+QString( s ) ,
                                             QMessageBox::Ok);
+
         }
+
         it++;
     }
 }
