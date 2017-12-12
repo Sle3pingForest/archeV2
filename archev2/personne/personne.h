@@ -17,6 +17,7 @@ public:
     //Cours selectCours();
     std::string getNom();
     std::string getPrenom();
+    std::string getDroit();
     QList<Cours*> getListeCours();
     QList<std::string> getListeDroit();
     void ajouterCours(Cours *c);

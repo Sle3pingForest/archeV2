@@ -25,19 +25,22 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
 
+
+
+
+
     proposer = new QPushButton("Proposer cours",this);
     proposer->setMaximumWidth(100);
     proposer->setMaximumHeight(30);
     gridLayout->addWidget(proposer,3,5);
-
-
-
     connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
+
     connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
+    listeCours->setVisible(false);
+    proposer->setVisible(false);
 
 
     setLayout(gridLayout);
-
 
 }
 
@@ -63,10 +66,33 @@ void Accueil::on_listeCours_clicked() {
 
 void Accueil:: setEstCo(bool f){
     estCo = f;
+
+}
+
+void Accueil::rafraichirBouton() {
+    if (estCo) {
+        listeCours->setVisible(true);
+
+        std::cout<< "TEST " << getPersonne() << endl;
+        if (getPersonne()->getDroit() == "enseignant" || getPersonne()->getDroit() == "admin") {
+            proposer->setVisible(true);
+        }
+
+    } else {
+        listeCours->setVisible(false);
+        proposer->setVisible(false);
+    }
 }
 
 bool Accueil:: getEstCo(){
+
     return estCo;
 }
 
+void Accueil::setPersonne(Personne *p) {
+    perso = p;
+}
 
+Personne* Accueil::getPersonne(){
+    return perso;
+}

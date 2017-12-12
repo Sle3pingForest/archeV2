@@ -75,11 +75,14 @@ void FenetrePrincipale::connecter()
             accueil->setEstCo(true);
             connexion->setEnabled(false);
             logout->setEnabled(true);
+            accueil->setPersonne(listeCours->getPersonCo());
+            accueil->rafraichirBouton();
         }
     }
 }
 
 void FenetrePrincipale::accueilRedirect() {
+    accueil->rafraichirBouton();
     slotDisplayFen(0);
 }
 
@@ -89,7 +92,8 @@ void FenetrePrincipale::deconnecter()
      this->slotDisplayFen(0);
      connexion->setEnabled(true);
      logout->setEnabled(false);
-
+     accueil->setPersonne(NULL);
+     accueil->rafraichirBouton();
 }
 
 
@@ -101,8 +105,6 @@ void FenetrePrincipale::slotDisplayFen(int fenIndex)
 
 void FenetrePrincipale::slotPersonCo(std::string s) {
     listeCours->setPersonCo(s);
-
-
 }
 
 bool FenetrePrincipale::getCo() {
