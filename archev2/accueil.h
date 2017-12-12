@@ -14,6 +14,7 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <index/connexion.h>
+#include "gestionCours/listecourenattente.h"
 
 
 class Accueil : public QWidget
@@ -34,6 +35,7 @@ public:
 private slots:
     void on_listeCours_clicked();
     void on_proposer_clicked();
+    void on_Atttente_clicked();
 
 signals:
     void askDisplayFen(int fenInd);
@@ -48,11 +50,12 @@ private:
     QGridLayout *gridLayout;
     QLabel *label, *label2, *labelimgAccueil;
     QLineEdit *urlEdit;
-    QPushButton *listeCours , *proposer;
+    QPushButton *listeCours , *proposer, *attente;
     QProgressBar *progression;
 
 
     //DEV class
+    ListeCourEnAttente *listeCoursEnAttente;
     bool erreurTrouvee = false; //Variable qui nous permet de savoir s'il y a eu une erreur ou non.
     bool estCo = false;
     Personne *perso;

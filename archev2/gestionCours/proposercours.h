@@ -8,7 +8,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QMessageBox>
-#include "cours.h"
+#include "listecourenattente.h"
 
 class ProposerCours : public QWidget
 {
@@ -33,7 +33,7 @@ class ProposerCours : public QWidget
         QPushButton *valider;
 
         //DEV class
-        Cours *cours;
+        ListeCourEnAttente *lcea;
 };
 
 #endif // PROPOSERCOURS_H

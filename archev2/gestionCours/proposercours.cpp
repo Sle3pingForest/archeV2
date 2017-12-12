@@ -3,6 +3,7 @@
 ProposerCours::ProposerCours(QWidget *parent) : QWidget(parent)
 {
 
+    lcea = new ListeCourEnAttente();
     gridLayout = new QGridLayout();
 
     nomCours = new QLineEdit("Enter nom du Cour",this);
@@ -37,12 +38,14 @@ void ProposerCours:: validerCours(){
     string nom = nomCours->text().toStdString();
     string nomE = nomEns->text().toStdString();
     if(nom != "" && nomE !=""){
-        cours = new Cours(nom,nomE);
+        lcea->proposerCours(nom,nomE);
+        QMessageBox::information(this, tr("Valider"),
+                                        tr("Validation en cours"),
+                                        QMessageBox::Ok);
     }
     else{
-        QMessageBox::warning(this, tr("wrong login"),
-                                        tr("L'indentifiant ou le mot de passe \n"
-                                           "est éronné "),
+        QMessageBox::warning(this, tr("Error formulaire"),
+                                        tr("Nom du cour Ou nom enseignat est vide"),
                                         QMessageBox::Ok);
     }
 
