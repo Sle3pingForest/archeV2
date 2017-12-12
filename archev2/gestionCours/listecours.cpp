@@ -184,12 +184,12 @@ void ListeCours::inscription(QString s){
 }
 
 
-/*
+
 void ListeCours::desinscription(QString s){
     bool trouve =false;
      std::cout<< "azerty "<< endl;
 
-    QList<Cours*>::iterator it = coursList.begin();/*
+    QList<Cours*>::iterator it = coursList.begin();
     while(it != coursList.end() && !trouve) {
         if ( (*it)->getNomCours() == s.toStdString() && !personlist.at(personCo)->getListeCours().contains(*it)) {
              QMessageBox::warning(this, tr("Desinscription"),
@@ -204,10 +204,10 @@ void ListeCours::desinscription(QString s){
                                             QMessageBox::Ok);
         }
         it--;
-    }*/
+    }
 }
 
-*/
+
 void ListeCours::setPersonCo(std::string i) {
     int a = 0;
     bool trouve =false;

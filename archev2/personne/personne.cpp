@@ -39,12 +39,12 @@ Personne::Personne(std::string s, std::string ss,int i)
         coursInscrit.append(c);
     }
     
-    /*
+
     void Personne::supprimerCours(Cours *c){
         int i = coursInscrit.lastIndexOf(c);
         coursInscrit.takeAt(i);
     }
-*/
+
 
     QList<Cours*> Personne::getListeCours(){
         return coursInscrit;
