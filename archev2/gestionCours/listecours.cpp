@@ -33,6 +33,7 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
     model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
     model->setHorizontalHeaderItem(2 , new QStandardItem("Inscription"));
     model->setHorizontalHeaderItem(3 , new QStandardItem("Desinscription"));
+    model->setHorizontalHeaderItem(4 , new QStandardItem("Add Resource"));
 
     vueliste = new QTableView(this);
 
@@ -78,22 +79,23 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
      i = 0;
 
      QSignalMapper *mapper = new QSignalMapper(this);
-
-
      QSignalMapper *mapper2 = new QSignalMapper(this);
+     QSignalMapper *mapper3 = new QSignalMapper(this);
+
      connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(inscription(QString)));
-
-
      connect(mapper2, SIGNAL(mapped(QString)) , this , SLOT(desinscription(QString)));
+     //connect(mapper3, SIGNAL(mapped(QString)) , this , SLOT(addFile(QString)));
 
         buttons.clear();
         desinscription_boutons.clear();
+        //resources_boutons
 
       for(QList<Cours*>::iterator it = coursList.begin(); it != coursList.end(); it++)    {
 
 
         buttons.append( new QPushButton("Inscription"));
         desinscription_boutons.append(new QPushButton("Desinscription"));
+        //resources_boutons (new QPushButton("Add Resource"));
 
         vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
         mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it)->getNomCours() ) ) );
@@ -203,7 +205,7 @@ void ListeCours::desinscription(QString s){
                                               "Vous etes desinscrits au cours : "+QString( s ) ,
                                             QMessageBox::Ok);
         }
-        it--;
+        it++;
     }
 }
 

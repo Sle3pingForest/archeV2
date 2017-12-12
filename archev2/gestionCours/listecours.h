@@ -57,7 +57,7 @@ private:
      QTableWidget *listevue;
      QList<Cours*> coursList;
      QList<Personne*> personlist;
-     QList<QPushButton*> buttons, desinscription_boutons;
+     QList<QPushButton*> buttons, desinscription_boutons, resources_boutons;
      int personCo;
 
      // Dev Clas & Attributs
