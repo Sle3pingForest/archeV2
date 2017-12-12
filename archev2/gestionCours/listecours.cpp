@@ -117,7 +117,7 @@ void ListeCours::ajouterCours(Cours *c) {
 void ListeCours::ajouterCoursListe(Cours *c) {
     coursList.append(c);
 }
-
+/*
 void ListeCours::supprimerCours(Cours *c){
     listeCours.pop_back(c);
 }
@@ -125,7 +125,7 @@ void ListeCours::supprimerCours(Cours *c){
 void ListeCours::supprimerCoursListe(Cours *c){
     int i = coursList.lastIndexOf(c);
     coursList.takeAt(i);
-}
+}*/
 
 string ListeCours::getNomDeCours(int i){
 
@@ -172,6 +172,8 @@ void ListeCours::inscription(QString s){
     }
 }
 
+
+/*
 void ListeCours::desinscription(QString s){
     bool trouve =false;
 
@@ -193,6 +195,7 @@ void ListeCours::desinscription(QString s){
     }
 }
 
+*/
 void ListeCours::setPersonCo(std::string i) {
     int a = 0;
     bool trouve =false;

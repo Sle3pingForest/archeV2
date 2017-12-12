@@ -42,11 +42,17 @@ void ProposerCours:: validerCours(){
         QMessageBox::information(this, tr("Valider"),
                                         tr("Validation en cours"),
                                         QMessageBox::Ok);
+        valider->setEnabled(false);
+        nomEns->setEnabled(false);
+        nomCours->setEnabled(false);
+        detailDuCours->setEnabled(false);
+
     }
     else{
         QMessageBox::warning(this, tr("Error formulaire"),
                                         tr("Nom du cour Ou nom enseignat est vide"),
                                         QMessageBox::Ok);
     }
+
 
 }
