@@ -25,11 +25,13 @@ class FenetrePrincipale : public QMainWindow
         void ajouterCours(Cours *c);
         void ajouterCoursListe(Cours *c);
 
+
     public slots:
         void slotDisplayFen(int fenIndex);
         void slotPersonCo(std::string s);
         void connecter();
         void deconnecter();
+        void accueilRedirect();
     signals:
         void askDisplayFen(int fenInd);
         void askPersonCo(std::string s);
@@ -40,7 +42,7 @@ class FenetrePrincipale : public QMainWindow
     private:
         //QT
         QStackedWidget *stack;
-        QPushButton *connexion, *logout;
+        QPushButton *connexion, *logout, *acc;
         QToolBar *qtool;
 
         Accueil *accueil;

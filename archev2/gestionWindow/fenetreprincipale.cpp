@@ -30,8 +30,14 @@ FenetrePrincipale::FenetrePrincipale() : QMainWindow()
      connexion->setMaximumHeight(30);
      connect(connexion, SIGNAL (clicked()), this, SLOT (connecter()));
 
+     acc = new QPushButton("Accueil",this);
+     acc->setMaximumWidth(80);
+     acc->setMaximumHeight(30);
+     connect(acc, SIGNAL (clicked()), this, SLOT ( accueilRedirect() ));
+
     qtool->addWidget(connexion);
     qtool->addWidget(logout);
+    qtool->addWidget(acc);
 
     logout->setEnabled(false);
 
@@ -71,6 +77,10 @@ void FenetrePrincipale::connecter()
             logout->setEnabled(true);
         }
     }
+}
+
+void FenetrePrincipale::accueilRedirect() {
+    slotDisplayFen(0);
 }
 
 void FenetrePrincipale::deconnecter()
