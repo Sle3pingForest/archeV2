@@ -183,7 +183,6 @@ void ListeCours::recreerModel() {
     }
 
 
-    vueliste = new QTableView(this);
     vueliste->setModel(model);
     i = 0;
 

@@ -22,6 +22,7 @@ class ListeCourEnAttente: public QWidget
         ListeCourEnAttente(QWidget *parent = 0);
         void proposerCours(std::string titre, std::string nom);
         void ajouterCours(Cours c);
+        void creModel();
         ~ListeCourEnAttente();
 
 
@@ -44,6 +45,7 @@ public slots:
         QTableView *vueliste;
         QTableWidget *listevue;
         QList<QPushButton*> buttons;
+         QSignalMapper *mapper;
 };
 
 #endif // LISTECOURENATTENTE_H

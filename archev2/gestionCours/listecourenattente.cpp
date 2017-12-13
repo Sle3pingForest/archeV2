@@ -24,64 +24,18 @@ ListeCourEnAttente::ListeCourEnAttente(QWidget *parent) : QWidget(parent)
         this->ajouterCours( *court );
 
         setLayout(gridLayout);
-
-
-       int i =0;
-
-       int column = listCoursAttente.size();
-
-       model = new QStandardItemModel(3, column,this);
-       model->setHorizontalHeaderItem(0 , new QStandardItem("Nom cours"));
-       model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
-       model->setHorizontalHeaderItem(2 , new QStandardItem("Valider"));
-
-       vueliste = new QTableView(this);
-
-       for(std::vector<Cours>::iterator it = listCoursAttente.begin(); it != listCoursAttente.end(); it++, i++)    {
-
-           model->setItem(i , 0 , new QStandardItem( QString( QString::fromStdString( (*it).getNomCours() ) ) ) );
-           model->setItem(i , 1 , new QStandardItem( QString( QString::fromStdString( (*it).getNomEnseignant()  ) ) ) );
-
-       }
-
-    vueliste = new QTableView(this);
-    vueliste->setModel(model);
-    i = 0;
-
-    QSignalMapper *mapper = new QSignalMapper(this);
-
-    connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(validation(QString)));
-
-       buttons.clear();
-       //resources_boutons
-
-     for(std::vector<Cours>::iterator it = listCoursAttente.begin(); it != listCoursAttente.end(); it++)    {
-
-
-       buttons.append( new QPushButton("Valider"));
-
-       vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
-       mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it).getNomCours() ) ) );
-
-       connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
-       i++;
-
-   }
-
-
-        gridLayout->addWidget(vueliste,200,150);
-
+        creModel();
 
 }
 
 void ListeCourEnAttente:: proposerCours(string titre, string nom){
-    Cours *cour = new Cours(titre, nom);
-    ajouterCours(*cour);
+    Cours *c = new Cours(titre, nom);
+    ajouterCours(*c);
 }
 
 void ListeCourEnAttente:: ajouterCours(Cours c){
     listCoursAttente.push_back(c);
-    cout<<"hello nam "<<endl;
+    creModel();
 }
 
 ListeCourEnAttente:: ~ListeCourEnAttente(){
@@ -117,5 +71,58 @@ void ListeCourEnAttente::validation(QString s){
     buttons.removeAt(i);
     model->removeRow(i);
     vueliste->repaint();
+
+}
+
+
+void:: ListeCourEnAttente::creModel(){
+    int i =0;
+
+    int column = listCoursAttente.size();
+
+
+    cout<<listCoursAttente.size()<<endl;
+
+    model = new QStandardItemModel(3, column,this);
+    model->setHorizontalHeaderItem(0 , new QStandardItem("Nom cours"));
+    model->setHorizontalHeaderItem(1 , new QStandardItem("Enseignant"));
+    model->setHorizontalHeaderItem(2 , new QStandardItem("Valider"));
+
+    vueliste = new QTableView(this);
+
+    for(std::vector<Cours>::iterator it = listCoursAttente.begin(); it != listCoursAttente.end(); it++, i++)    {
+
+        model->setItem(i , 0 , new QStandardItem( QString( QString::fromStdString( (*it).getNomCours() ) ) ) );
+        model->setItem(i , 1 , new QStandardItem( QString( QString::fromStdString( (*it).getNomEnseignant()  ) ) ) );
+         std::cout<< "yolo"+(*it).getNomCours()  << endl;
+
+    }
+
+ vueliste->setModel(model);
+ i = 0;
+
+ mapper = new QSignalMapper(this);
+
+ connect(mapper, SIGNAL(mapped(QString)) , this , SLOT(validation(QString)));
+
+    buttons.clear();
+    //resources_boutons
+
+  for(std::vector<Cours>::iterator it = listCoursAttente.begin(); it != listCoursAttente.end(); it++)    {
+
+
+    buttons.append( new QPushButton("Valider"));
+
+    vueliste->setIndexWidget(model->index(i,2), buttons.at(i));
+    mapper->setMapping(buttons.at(i) , QString( QString::fromStdString( (*it).getNomCours() ) ) );
+
+    connect(buttons.at(i) , SIGNAL(clicked() ) , mapper , SLOT(map() ));
+    i++;
+
+}
+
+
+
+     gridLayout->addWidget(vueliste,200,150);
 
 }
