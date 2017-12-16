@@ -23,7 +23,7 @@ class FenetrePrincipale : public QMainWindow
         ~FenetrePrincipale();
         bool getCo();
         void setCo(bool v);
-        void ajouterCours(Cours *c);
+        //void ajouterCours(Cours *c);
         void ajouterCoursListe(Cours *c);
 
 

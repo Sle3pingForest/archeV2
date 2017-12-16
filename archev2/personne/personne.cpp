@@ -28,7 +28,6 @@ Personne::Personne(std::string s, std::string ss,int i)
     }
 
 Personne::~Personne() {
-    delete coursInscrit;
 }
 
     /**

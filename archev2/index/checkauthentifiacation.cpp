@@ -57,8 +57,6 @@ bool CheckAuthentifiacation::checkUser(string id, string ps){
 
 
 CheckAuthentifiacation::~CheckAuthentifiacation() {
-    delete listUsers;
-    delete personne;
 }
 
 /**
