@@ -28,6 +28,7 @@ string Cours::getDetailsCour(){
 int Cours::getNbPlaceMax(){
     return nbPlaceMax;
 }
+
 /*
 QList<Personne*> Cours::getPersonList() {
     return personlist;

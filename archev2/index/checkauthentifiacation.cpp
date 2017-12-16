@@ -2,12 +2,21 @@
 
 CheckAuthentifiacation::CheckAuthentifiacation(){
     addUsers();
-
+    /*personne.append(new Personne("a", "z", 1));
+    personne.append(new Personne("allen", "fresh", 3));
+    personne.append(new Personne("lea", "boire", 3));
+    personne.append(new Personne("sleeping", "123456", 3));*/
 }
 
 void CheckAuthentifiacation::addUsers(){
     listUsers["sleeping"] = "123456";
+    listUsers["lea"] = "boire";
+    listUsers["allen"] = "fresh";
     listUsers["a"] = "z";
+}
+
+void CheckAuthentifiacation::addPersonne(Personne p) {
+    personne.append(&p);
 }
 
 
@@ -35,6 +44,12 @@ CheckAuthentifiacation::~CheckAuthentifiacation() {
 map<string,string> CheckAuthentifiacation::GetlistUsers(){
     return listUsers;
 }
+
+QList<Personne*> CheckAuthentifiacation::getPersonne(){
+    return personne;
+}
+
+
 
 
 

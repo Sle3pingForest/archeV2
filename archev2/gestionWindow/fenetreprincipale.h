@@ -10,6 +10,8 @@
 #include "accueil.h"
 #include "./index/connexion.h"
 #include "./gestionCours/listecours.h"
+#include "./gestionCours/proposercours.h"
+#include "./gestionCours/listecourenattente.h"
 
 
 class FenetrePrincipale : public QMainWindow
@@ -24,14 +26,20 @@ class FenetrePrincipale : public QMainWindow
         void ajouterCours(Cours *c);
         void ajouterCoursListe(Cours *c);
 
+
     public slots:
         void slotDisplayFen(int fenIndex);
         void slotPersonCo(std::string s);
+        void slotAddCours(std::string s, std::string ss);
         void connecter();
         void deconnecter();
+        void accueilRedirect();
+
+
     signals:
         void askDisplayFen(int fenInd);
         void askPersonCo(std::string s);
+        void askCours(std::string s, std::string ss);
 
 
 
@@ -39,12 +47,14 @@ class FenetrePrincipale : public QMainWindow
     private:
         //QT
         QStackedWidget *stack;
-        QPushButton *connexion, *logout;
+        QPushButton *connexion, *logout, *acc;
         QToolBar *qtool;
 
         Accueil *accueil;
         ListeCours *listeCours;
         Connexion *co;
+        ProposerCours *pc;
+        ListeCourEnAttente *listeAttente;
         bool estCo =false;
 };
 

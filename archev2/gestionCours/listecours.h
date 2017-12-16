@@ -10,6 +10,14 @@
 #include "../personne/personne.h"
 #include <QTableView>
 #include <QTableWidget>
+#include <iostream>
+#include <QStringList>
+#include <QMessageBox>
+#include <QStandardItemModel>
+#include <QGraphicsScene>
+#include <QSignalMapper>
+#include <QTableWidgetItem>
+
 
 
 using namespace std;
@@ -27,12 +35,17 @@ public:
     void ajouterCoursListe(Cours *c);
     QList<Personne*> getPersonList();
     void setPersonCo(std::string i);
+    Personne* getPersonCo();
+    void supprimerCoursListe(Cours *c);
+    void supprimerCours(Cours *c);
+    void recreerModel();
 
 private slots:
      void handleButton();
 
 public slots:
      void inscription(QString s);
+     void desinscription(QString s);
 
 signals:
     void askDisplayFen(int fenInd);
@@ -41,12 +54,17 @@ private:
 
     //QT Class
      QLabel *label, *label2;
+     QStandardItemModel *model;
      QGridLayout *gridLayout;
      QTableView *vueliste;
      QTableWidget *listevue;
      QList<Cours*> coursList;
      QList<Personne*> personlist;
-     QList<QPushButton*> buttons;
+     QList<QPushButton*> buttons, desinscription_boutons, resources_boutons;
+     QSignalMapper *mapper;
+     QSignalMapper *mapper2 ;
+     QSignalMapper *mapper3;
+
      int personCo;
 
      // Dev Clas & Attributs

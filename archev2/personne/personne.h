@@ -10,16 +10,18 @@ class Personne
 {
 public:
     Personne(std::string s, std::string ss,int i);
-    Etudiant();
+    //Etudiant();
     int getNbCoursMax();
     int consulterNote();
     //void inscrireCours(Cours& c);
     //Cours selectCours();
     std::string getNom();
     std::string getPrenom();
+    std::string getDroit();
     QList<Cours*> getListeCours();
     QList<std::string> getListeDroit();
     void ajouterCours(Cours *c);
+    void supprimerCours(Cours *c);
 
 
 

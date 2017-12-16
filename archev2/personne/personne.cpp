@@ -9,7 +9,7 @@ Personne::Personne(std::string s, std::string ss,int i)
            listedroit.append("etudiant");
                break;
            case 2:
-           listedroit.append("prof");
+           listedroit.append("enseignant");
                break;
            case 3:
            listedroit.append("admin");
@@ -38,6 +38,12 @@ Personne::Personne(std::string s, std::string ss,int i)
     void Personne::ajouterCours(Cours *c){
         coursInscrit.append(c);
     }
+    
+
+    void Personne::supprimerCours(Cours *c){
+        int i = coursInscrit.lastIndexOf(c);
+        coursInscrit.takeAt(i);
+    }
 
 
     QList<Cours*> Personne::getListeCours(){
@@ -46,4 +52,8 @@ Personne::Personne(std::string s, std::string ss,int i)
 
     QList<std::string> Personne::getListeDroit(){
         return listedroit;
+    }
+
+    std::string Personne::getDroit(){
+        return listedroit.at(0);
     }
