@@ -52,8 +52,6 @@ void ListeCours::ajouterCoursListe(Cours *c) {
 
     recreerModel();
 
-
-
 }
 
 

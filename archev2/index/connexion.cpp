@@ -2,6 +2,7 @@
 
 Connexion::Connexion()
 {
+    // On donne une taille et un titre par défaut à la fenêtre
     resize(228, 112);
     setWindowTitle("CONNEXION");
 
@@ -45,6 +46,14 @@ Connexion::~Connexion() {
     delete ca;
 }
 
+
+/**
+ * @brief Connexion::handleButton recupere le clic du bouton validation
+ * verifie si l'id et le mdp sont existants
+ * si oui set login à true et informe l'accueil de la personne connecté
+ * sinon affiche un message d'erreur
+ * puis ferme la fenetre
+ */
 void Connexion::handleButton()
  {
     ca = new CheckAuthentifiacation();
@@ -65,6 +74,10 @@ void Connexion::handleButton()
 }
 
 
+/**
+ * @brief Connexion::getLogingOk
+ * @return bool
+ */
 bool Connexion::getLogingOk(){
     return logingOk;
 }

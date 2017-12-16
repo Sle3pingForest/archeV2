@@ -10,11 +10,8 @@ class Personne
 {
 public:
     Personne(std::string s, std::string ss,int i);
-    //Etudiant();
     int getNbCoursMax();
     int consulterNote();
-    //void inscrireCours(Cours& c);
-    //Cours selectCours();
     std::string getNom();
     std::string getPrenom();
     std::string getDroit();
@@ -23,6 +20,8 @@ public:
     void ajouterCours(Cours *c);
     void supprimerCours(Cours *c);
 
+
+    ~Personne();
 
 
 private:

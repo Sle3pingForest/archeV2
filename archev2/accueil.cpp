@@ -3,15 +3,17 @@
 
 Accueil::Accueil(QWidget *parent) : QWidget(parent)
 {
-    //On donne une taille par défaut à la fenêtre
+    //On donne un titre par défaut à la fenêtre
     setWindowTitle("Accueil");
 
     gridLayout = new QGridLayout();
     gridLayout->setVerticalSpacing(0);
 
+
+    // déclaration des widgets de la fenetre
+
     labelimgAccueil = new QLabel(this);
     labelimgAccueil->setPixmap(QPixmap("../archev2/img/imgApplication/accueil.jpg"));
-    //labelimgAccueil->setPixmap(QPixmap("img/accueil.jpg"));
     labelimgAccueil->show();
 
     label = new QLabel(this);
@@ -30,9 +32,6 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     listeCours->setMaximumHeight(30);
     gridLayout->addWidget(listeCours,2,5);
 
-    //listeAttente = new ListeCourEnAttente(this);
-
-
 
     proposer = new QPushButton("Proposer cours",this);
     proposer->setMaximumWidth(150);
@@ -40,52 +39,74 @@ Accueil::Accueil(QWidget *parent) : QWidget(parent)
     gridLayout->addWidget(proposer,3,5);
 
 
-
-    connect(attente, SIGNAL (clicked()), this, SLOT (on_Atttente_clicked()));
-    connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
-
-    connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
-
-
     listeCours->setVisible(false);
     proposer->setVisible(false);
     attente->setVisible(false);
+
+    // lien entre les boutons et les fonctions
+
+    connect(attente, SIGNAL (clicked()), this, SLOT (on_Atttente_clicked()));
+    connect(listeCours, SIGNAL (clicked()), this, SLOT (on_listeCours_clicked()));
+    connect(proposer, SIGNAL (clicked()), this, SLOT (on_proposer_clicked()));
+
+
+
 
     setLayout(gridLayout);
 
 }
 
 Accueil::~Accueil() {
+    delete listeCoursEnAttente;
+    delete perso;
 }
 
+
+/**
+ * @brief Accueil::on_proposer_clicked
+ * slot qui récupère le signal d'un bouton
+ * et qui redirige vers la page de proposition de cours
+ * via l'appelle à la fonction de changement de page de la classe fenetreprincipale
+ */
 void Accueil::on_proposer_clicked() {
         emit askDisplayFen(2);
-
 }
 
-
+/**
+ * @brief Accueil::on_proposer_clicked
+ * slot qui récupère le signal d'un bouton
+ * et qui redirige vers la page de liste de cours en attente
+ * via l'appelle à la fonction de changement de page de la classe fenetreprincipale
+ */
 void Accueil::on_Atttente_clicked() {
         emit askDisplayFen(3);
-
 }
 
+
+/**
+ * @brief Accueil::on_proposer_clicked
+ * slot qui récupère le signal d'un bouton
+ * et qui redirige vers la page de liste de cours
+ * via l'appelle à la fonction de changement de page de la classe fenetreprincipale
+ */
 void Accueil::on_listeCours_clicked() {
      emit askDisplayFen(1);
-    /*if(estCo){
-        emit askDisplayFen(1);
-    }
-    else{
-        QMessageBox::warning(this, tr("Exces error"),
-                                        tr("Identifiez-vous!!! "),
-                                        QMessageBox::Ok);
-    }*/
 }
 
+
+/**
+ * @brief Accueil::setEstCo
+ * @param f bool
+ */
 void Accueil:: setEstCo(bool f){
     estCo = f;
-
 }
 
+/**
+ * @brief Accueil::rafraichirBouton
+ * fonction qui vérifie les droits de l'utilisateur connecté
+ * et affiche les boutons selon ses droits
+ */
 void Accueil::rafraichirBouton() {
     if (estCo) {
         listeCours->setVisible(true);
@@ -103,15 +124,28 @@ void Accueil::rafraichirBouton() {
     }
 }
 
+
+/**
+ * @brief Accueil::getEstCo
+ * @return estCo bool
+ */
 bool Accueil:: getEstCo(){
 
     return estCo;
 }
 
+/**
+ * @brief Accueil::setPersonne la personne connectée
+ * @param p Personne
+ */
 void Accueil::setPersonne(Personne *p) {
     perso = p;
 }
 
+/**
+ * @brief Accueil::getPersonne la personne connectée
+ * @return Personne
+ */
 Personne* Accueil::getPersonne(){
     return perso;
 }

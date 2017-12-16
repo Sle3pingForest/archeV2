@@ -10,8 +10,11 @@ INPUT(
 ./release\enseignant.o
 ./release\listecourenattente.o
 ./release\personne.o
+./release\proposercours.o
 ./release\moc_accueil.o
 ./release\moc_connexion.o
 ./release\moc_listecours.o
 ./release\moc_fenetreprincipale.o
+./release\moc_listecourenattente.o
+./release\moc_proposercours.o
 );
