@@ -16,9 +16,6 @@ ListeCours::ListeCours(QWidget *parent) : QWidget(parent)
 
     //DEV
 
-
-    int i =0;
-
     this->ajouterCoursListe( new Cours("Toucan" , "teemo") );
     this->ajouterCoursListe( new Cours("CPOA" , "yasuo"));
     this->ajouterCoursListe( new Cours("ALGO" , "Master yi"));
@@ -57,7 +54,7 @@ void ListeCours::ajouterCoursListe(Cours *c) {
 
 void ListeCours::supprimerCoursListe(Cours *c){
     int i = coursList.lastIndexOf(c);
-    coursList.takeAt(i);
+    delete coursList.takeAt(i);
 }
 
 string ListeCours::getNomDeCours(int i){

@@ -40,11 +40,11 @@ void Cours::ajouterEtudiant(Personne *p) {
 }
 
 
-void Cours:: ajoutListPrincial(Personne p){
+void Cours:: ajoutListPrincial(Personne *p){
     listePrincipal.push_back(p);
 }
 
-void Cours:: ajoutListAttente(Personne p){
+void Cours:: ajoutListAttente(Personne *p){
     listeAttente.push_back(p);
 }
 
@@ -56,7 +56,7 @@ bool Cours:: verifierNbPlaceMax(){
 }
 
 
-bool Cours:: verifierPersonneNbCourMax(Personne p){
+bool Cours:: verifierPersonneNbCourMax(Personne *p){
     return p.getNbCoursMax < p.getCoursInscrit;
 }
 */

@@ -78,7 +78,7 @@ Personne::~Personne() {
      */
     void Personne::supprimerCours(Cours *c){
         int i = coursInscrit.lastIndexOf(c);
-        coursInscrit.takeAt(i);
+        delete coursInscrit.takeAt(i);
     }
 
     /**
